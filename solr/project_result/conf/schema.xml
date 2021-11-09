@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<schema name="project_result" version="1.5">
+
+    <!-- If you remove this field, you must _also_ disable the update log in solrconfig.xml
+      or Solr won't start. _version_ and update log are required for SolrCloud
+   -->
+    <field name="_version_" type="long" indexed="true" stored="true"/>
+
+    <!-- points to the root document of a block of nested documents. Required for nested
+      document support, may be removed otherwise
+   -->
+    <field name="_root_" type="string" indexed="true" stored="false"/>
+
+    <!-- Only remove the "id" field if you have a very good reason to. While not strictly
+     required, it is highly recommended. A <uniqueKey> is present in almost all Solr
+     installations. See the <uniqueKey> declaration below where <uniqueKey> is set to "id".
+   -->
+    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
+
+    <field name="result_id" type="int" indexed="true" stored="true" omitNorms="true"/>
+    <field name="result_sort" type="string_ci" indexed="true" stored="true"/>
+    <field name="result_search" type="text_general_edge_ngram" indexed="true" stored="true"/>
+    <field name="result_abstract" type="text_general_edge_ngram" indexed="true" stored="true"/>
+
+    <field name="type_id" type="int" indexed="true" stored="true"/>
+    <field name="type" type="string" indexed="true" stored="true"/>
+    <field name="type_sort" type="string_ci" indexed="true" stored="true"/>
+    <field name="type_search" type="text_general_edge_ngram" indexed="true" stored="true"/>
+
+    <field name="type_category" type="string" indexed="true" stored="true"/>
+    <field name="type_category_sort" type="string_ci" indexed="true" stored="true"/>
+    <field name="type_category_search" type="text_general_edge_ngram" indexed="true" stored="true"/>
+
+    <field name="project_lead_id" type="int" indexed="true" stored="true" omitNorms="true" />
+    <field name="project_lead" type="string" indexed="true" stored="true" />
+    <field name="project_lead_docref" type="string" indexed="true" stored="true" />
+    <field name="project_lead_label" type="string" indexed="true" stored="true" />
+    <field name="project_lead_sort" type="string_ci" indexed="true" stored="true" />
+    <field name="project_lead_search" type="text_general_edge_ngram" indexed="true" stored="true" />
+
+    <field name="project_id" type="int" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="project" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="project_label" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="project_sort" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="project_search" type="text_general_edge_ngram" indexed="true" stored="true" multiValued="true"/>
+
+    <field name="project_status" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="project_status_sort" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="project_status_label" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="project_status_search" type="text_general_edge_ngram" indexed="true" stored="true" multiValued="true"/>
+
+    <field name="program_call_id" type="int" indexed="true" stored="true" multiValued="true"/>
+    <field name="program_call" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="program_call_sort" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="program_call_label" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="program_call_search" type="text_general_edge_ngram" indexed="true" stored="true" multiValued="true"/>
+
+    <field name="organisation_id" type="int" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="organisation" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="organisation_sort" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="organisation_label" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="organisation_search" type="text_general_edge_ngram" indexed="true" stored="true" multiValued="true"/>
+
+    <field name="organisation_type_id" type="int" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="organisation_type" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="organisation_type_sort" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="organisation_type_label" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="organisation_type_search" type="text_general_edge_ngram" indexed="true" stored="true"
+           multiValued="true"/>
+
+    <field name="challenge_id" type="int" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="challenge" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="challenge_sort" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="challenge_label" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="challenge_search" type="text_general_edge_ngram" indexed="true" stored="true" multiValued="true"/>
+
+    <field name="country_id" type="int" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="country" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="country_sort" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="country_label" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="country_search" type="text_general_edge_ngram" indexed="true" stored="true" multiValued="true"/>
+
+    <field name="contact_id" type="int" indexed="true" stored="true"/>
+    <field name="contact" type="string" indexed="true" stored="true"/>
+    <field name="contact_sort" type="string_ci" indexed="true" stored="true"/>
+    <field name="contact_label" type="string" indexed="true" stored="true"/>
+    <field name="contact_search" type="text_general_edge_ngram" indexed="true" stored="true"/>
+
+    <field name="html" type="text_general_edge_ngram" indexed="true" stored="true"/>
+
+    <field name="is_public" type="boolean" indexed="true" stored="true"/>
+    <field name="is_public_text" type="string" indexed="true" stored="true"/>
+
+    <field name="size" type="float" indexed="true" stored="true"/>
+    <field name="result" type="string" indexed="true" stored="true"/>
+    <field name="filename" type="string" indexed="true" stored="true"/>
+    <field name="date_created" type="date" indexed="true" stored="true"/>
+    <field name="date_released" type="date" indexed="true" stored="true"/>
+    <field name="date_updated" type="date" indexed="true" stored="true"/>
+    <field name="content_type" type="string" indexed="true" stored="true"/>
+    <field name="document_type" type="string" indexed="true" stored="true"/>
+    <field name="content" type="string" indexed="true" stored="true"/>
+
+    <dynamicField name="attr_*" type="string" indexed="true" stored="true" multiValued="true"/>
+
+    <uniqueKey>id</uniqueKey>
+
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true"/>
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+    <fieldType name="float" class="solr.TrieFloatField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="long" class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="double" class="solr.TrieDoubleField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="int" class="solr.TrieIntField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="date" class="solr.TrieDateField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="tdate" class="solr.TrieDateField" precisionStep="6" positionIncrementGap="0"/>
+
+    <fieldType name="text_en_splitting" class="solr.TextField" positionIncrementGap="100"
+               autoGeneratePhraseQueries="true">
+        <analyzer type="index">
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+            <filter class="solr.StopFilterFactory"
+                    ignoreCase="true"
+                    words="lang/stopwords_en.txt"
+            />
+            <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1"
+                    catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
+            <filter class="solr.PorterStemFilterFactory"/>
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+            <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+            <filter class="solr.StopFilterFactory"
+                    ignoreCase="true"
+                    words="lang/stopwords_en.txt"
+            />
+            <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1"
+                    catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="1"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
+            <filter class="solr.PorterStemFilterFactory"/>
+        </analyzer>
+    </fieldType>
+
+    <fieldType name="text_general_edge_ngram" class="solr.TextField" positionIncrementGap="100">
+        <analyzer type="index">
+            <tokenizer class="solr.LowerCaseTokenizerFactory"/>
+            <filter class="solr.EdgeNGramFilterFactory" minGramSize="2" maxGramSize="15"/>
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer class="solr.LowerCaseTokenizerFactory"/>
+        </analyzer>
+    </fieldType>
+
+    <fieldType name="string_ci" class="solr.TextField"
+               sortMissingLast="true" omitNorms="true">
+        <analyzer>
+            <tokenizer class="solr.KeywordTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+        </analyzer>
+    </fieldType>
+</schema>
