@@ -1,6 +1,8 @@
-FROM solr:8
+FROM solr:latest
 LABEL maintainer="info@jield.nl"
 LABEL org.opencontainers.image.source="https://github.com/jield-webdev/solodb-solr/solr"
+
+ENV SOLR_OPTS="-XX:-UseLargePages"
 
 ADD --chown=solr:solr solr/calendar_calendar /var/solr/data/calendar_calendar
 ADD --chown=solr:solr solr/contact_contact /var/solr/data/contact_contact
