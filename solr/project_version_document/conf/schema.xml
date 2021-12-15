@@ -37,6 +37,7 @@
     <field name="start_date" type="date" indexed="true" stored="true"/>
     <field name="end_date" type="date" indexed="true" stored="true"/>
     <field name="date_submitted" type="date" indexed="true" stored="true"/>
+    <field name="resolution_date" type="date" indexed="true" stored="true"/>
     <field name="partners" type="int" indexed="true" stored="true"/>
     <field name="total_cost" type="float" indexed="true" stored="true"/>
     <field name="total_effort" type="float" indexed="true" stored="true"/>
