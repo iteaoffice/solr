@@ -14,6 +14,7 @@ ADD --chown=solr:solr solr/news_blog /var/solr/data/news_blog
 ADD --chown=solr:solr solr/news_news /var/solr/data/news_news
 ADD --chown=solr:solr solr/orgaisation_advisory_board_solution /var/solr/data/orgaisation_advisory_board_solution
 ADD --chown=solr:solr solr/organisation_advisoryboard_city /var/solr/data/organisation_advisoryboard_city
+ADD --chown=solr:solr solr/organisation_advisoryboard_city_tender /var/solr/data/organisation_advisoryboard_city_tender
 ADD --chown=solr:solr solr/organisation_organisation /var/solr/data/organisation_organisation
 ADD --chown=solr:solr solr/press_press /var/solr/data/press_press
 ADD --chown=solr:solr solr/project_achievement /var/solr/data/project_achievement
