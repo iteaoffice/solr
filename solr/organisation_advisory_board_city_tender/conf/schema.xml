@@ -26,8 +26,6 @@
     <copyField source="title" dest="title_sort"/>
     <copyField source="title" dest="title_search"/>
 
-    <field name="doc_ref" type="string" indexed="true" stored="true" omitNorms="true"/>
-
     <field name="description" type="string" indexed="true" stored="true"/>
     <field name="description_sort" type="string_ci" indexed="true" stored="false"/>
     <field name="description" type="text_general_edge_ngram" indexed="true" stored="false"/>
