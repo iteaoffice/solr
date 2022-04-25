@@ -28,7 +28,7 @@
 
     <field name="description" type="string" indexed="true" stored="true"/>
     <field name="description_sort" type="string_ci" indexed="true" stored="false"/>
-    <field name="description" type="text_general_edge_ngram" indexed="true" stored="false"/>
+    <field name="description_search" type="text_general_edge_ngram" indexed="true" stored="false"/>
     <copyField source="description" dest="description_sort"/>
     <copyField source="description" dest="description_search"/>
 
