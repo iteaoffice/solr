@@ -44,18 +44,11 @@
     <field name="condition_of_use_search" type="text_general_edge_ngram" indexed="true" stored="false"/>
     <copyField source="condition_of_use" dest="condition_of_use_search"/>
 
-    <field name="contact_id" type="int" indexed="true" stored="true" multiValued="true"/>
-    <field name="contact" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="contact_sort" type="string_ci" indexed="true" stored="false" multiValued="true"/>
-    <field name="contact_search" type="text_general_edge_ngram" indexed="true" stored="false" multiValued="true"/>
 
-    <copyField source="contact" dest="contact_sort" />
-    <copyField source="contact" dest="contact_search" />
-
-    <field name="project_id" type="int" indexed="true" stored="true"/>
-    <field name="project" type="string" indexed="true" stored="true"/>
-    <field name="project_sort" type="string_ci" indexed="true" stored="false"/>
-    <field name="project_search" type="text_general_edge_ngram" indexed="true" stored="false"/>
+    <field name="project_id" type="int" indexed="true" stored="true" multiValued="true"/>
+    <field name="project" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="project_sort" type="string_ci" indexed="true" stored="false" multiValued="true"/>
+    <field name="project_search" type="text_general_edge_ngram" indexed="true" stored="false" multiValued="true"/>
     <copyField source="project" dest="project_sort"/>
     <copyField source="project" dest="project_search"/>
 
