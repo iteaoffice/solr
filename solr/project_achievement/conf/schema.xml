@@ -93,7 +93,7 @@
     <field name="program_search" type="text_general_edge_ngram" indexed="true" stored="false"/>
 
     <copyField source="program" dest="program_search"/>
-    <copyField source="program" dest="author_search"/>
+    <copyField source="program" dest="program_sort"/>
 
     <field name="program_call_id" type="int" indexed="true" stored="true"/>
     <field name="program_call" type="string" indexed="true" stored="true"/>
