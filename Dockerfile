@@ -28,3 +28,5 @@ ADD --chown=solr:solr solr/project_version /var/solr/data/project_version
 ADD --chown=solr:solr solr/project_version_document /var/solr/data/project_version_document
 ADD --chown=solr:solr solr/project_workpackage_document /var/solr/data/project_workpackage_document
 ADD --chown=solr:solr solr/publication_publication /var/solr/data/publication_publication
+
+RUN mkdir /var/solr/cache && chown solr:solr /var/solr/cache
