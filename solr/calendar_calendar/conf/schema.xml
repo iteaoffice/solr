@@ -38,6 +38,7 @@
     <field name="location_sort" type="string_ci" indexed="true" stored="true" omitNorms="true"/>
     <field name="location_search" type="text_general_edge_ngram" indexed="true" stored="true" omitNorms="true"/>
 
+    <field name="type_id" type="int" indexed="true" stored="true" omitNorms="true"/>
     <field name="type" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="type_sort" type="string_ci" indexed="true" stored="true" omitNorms="true"/>
     <field name="type_search" type="text_general_edge_ngram" indexed="true" stored="true" omitNorms="true"/>
