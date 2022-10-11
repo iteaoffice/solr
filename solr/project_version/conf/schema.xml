@@ -25,7 +25,7 @@
     <field name="version_type_search" type="text_general_edge_ngram" indexed="true" stored="true"/>
 
     <copyField source="version_type" dest="version_type_sort"/>
-    <copyField source="version_type" dest="version_type_sort"/>
+    <copyField source="version_type" dest="version_type_search"/>
 
     <field name="version_status" type="string" indexed="true" stored="true"/>
     <field name="version_status_sort" type="string_ci" indexed="true" stored="true"/>
