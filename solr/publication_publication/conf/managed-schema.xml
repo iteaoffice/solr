@@ -68,7 +68,7 @@
     <field name="document_type_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
 
     <field name="download_count" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="size" type="float" indexed="true" stored="true"/>
+    <field name="size" type="pfloat" indexed="true" stored="true"/>
     <field name="sequence" type="pint" indexed="true" stored="true"/>
     <field name="date_created" type="pdate" indexed="true" stored="true"/>
     <field name="date_released" type="pdate" indexed="true" stored="true"/>

@@ -26,10 +26,10 @@
     <field name="description_date" type="pdate" indexed="true" stored="true"/>
     <field name="description_year" type="pint" indexed="true" stored="true"/>
 
-    <field name="description_content" type="text" indexed="true" stored="true"/>
+    <field name="description_content" type="text_general" indexed="true" stored="true"/>
     <field name="description_content_search" type="text_general" indexed="true" stored="true"/>
 
-    <field name="description_abstract" type="text" indexed="true" stored="true"/>
+    <field name="description_abstract" type="text_general" indexed="true" stored="true"/>
     <field name="description_abstract_search" type="text_general" indexed="true" stored="true"/>
 
     <field name="project_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
@@ -97,7 +97,7 @@
     <field name="challenge_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="challenge" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="challenge_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
-    <field name="challenge_label" type="string_ci" indexed="true" stored="true" multiValued="true"/>
+    <field name="challenge_label" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="challenge_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
 
     <uniqueKey>id</uniqueKey>

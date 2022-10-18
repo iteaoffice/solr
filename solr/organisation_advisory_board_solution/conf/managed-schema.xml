@@ -48,7 +48,7 @@
 
     <field name="advisory_board" type="string" indexed="true" stored="true"/>
     <field name="advisory_board_sort" type="text_gen_sort" indexed="true" stored="true"/>
-    <field name="advisory_board_search" type="string_ci" indexed="true" stored="true"/>
+    <field name="advisory_board_search" type="string" indexed="true" stored="true"/>
 
     <copyField source="advisory_board" dest="advisory_board_sort"/>
     <copyField source="advisory_board" dest="advisory_board_search"/>

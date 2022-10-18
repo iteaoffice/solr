@@ -39,9 +39,9 @@
     <field name="date_submitted" type="pdate" indexed="true" stored="true"/>
     <field name="resolution_date" type="pdate" indexed="true" stored="true"/>
     <field name="partners" type="pint" indexed="true" stored="true"/>
-    <field name="total_cost" type="float" indexed="true" stored="true"/>
-    <field name="total_effort" type="float" indexed="true" stored="true"/>
-    <field name="total_funding" type="float" indexed="true" stored="true"/>
+    <field name="total_cost" type="pfloat" indexed="true" stored="true"/>
+    <field name="total_effort" type="pfloat" indexed="true" stored="true"/>
+    <field name="total_funding" type="pfloat" indexed="true" stored="true"/>
 
     <field name="project_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="project_docref" type="string" indexed="true" stored="true" omitNorms="true"/>

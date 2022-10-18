@@ -27,7 +27,7 @@
 
     <field name="contact" type="string" indexed="true" stored="true"/>
     <field name="contact_sort" type="text_gen_sort" indexed="true" stored="true"/>
-    <field name="contact_search" type="string_ci" indexed="true" stored="true"/>
+    <field name="contact_search" type="string" indexed="true" stored="true"/>
 
     <copyField source="contact" dest="contact_sort"/>
     <copyField source="contact" dest="contact_search"/>
@@ -36,7 +36,7 @@
 
     <field name="organisation" type="string" indexed="true" stored="true"/>
     <field name="organisation_sort" type="text_gen_sort" indexed="true" stored="true"/>
-    <field name="organisation_search" type="string_ci" indexed="true" stored="true"/>
+    <field name="organisation_search" type="string" indexed="true" stored="true"/>
 
     <copyField source="organisation" dest="organisation_sort"/>
     <copyField source="organisation" dest="organisation_search"/>

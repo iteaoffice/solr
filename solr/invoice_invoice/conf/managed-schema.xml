@@ -30,14 +30,14 @@
     <field name="organisation_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="country" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="country_label" type="string_ci" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_label" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="country_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="country_iso3" type="string_ci" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_iso3" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="country_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="contact" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="contact_lastname" type="string_ci" indexed="true" stored="true" omitNorms="true"/>
+    <field name="contact_lastname" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_lastname_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
@@ -69,8 +69,8 @@
     <field name="year" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="period" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="period_ordinal" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="total" type="float" indexed="true" stored="true" omitNorms="true"/>
-    <field name="booking_total" type="float" indexed="true" stored="true" omitNorms="true"/>
+    <field name="total" type="pfloat" indexed="true" stored="true" omitNorms="true"/>
+    <field name="booking_total" type="pfloat" indexed="true" stored="true" omitNorms="true"/>
     <field name="booking_date" type="pdate" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="day_book_number" type="pint" indexed="true" stored="true" omitNorms="true"/>
