@@ -19,13 +19,13 @@
     <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
 
     <field name="organisation_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="organisation" type="text_ws" indexed="true" stored="true" omitNorms="true"/>
     <field name="organisation_docref" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="organisation_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="organisation_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="parent_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="parent" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="parent" type="text_ws" indexed="true" stored="true" omitNorms="true"/>
     <field name="parent_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="parent_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
