@@ -33,7 +33,7 @@
     <field name="position_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
     <field name="position_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="profile" type="string" indexed="false" stored="true" omitNorms="true"/>
+    <field name="profile" type="text_en" indexed="false" stored="true" omitNorms="true"/>
     <field name="profile_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
     <field name="profile_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
 

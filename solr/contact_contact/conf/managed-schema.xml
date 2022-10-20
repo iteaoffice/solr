@@ -53,7 +53,7 @@
     <field name="department_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="department_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="profile" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="profile" type="text_en" indexed="true" stored="true" omitNorms="true"/>
     <field name="profile_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="profile_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
