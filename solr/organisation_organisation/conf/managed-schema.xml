@@ -31,7 +31,7 @@
 
     <field name="own_parent_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="description" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="description" type="text_en" indexed="true" stored="true" omitNorms="true"/>
     <field name="description_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="vat" type="string" indexed="true" stored="true" omitNorms="true"/>
