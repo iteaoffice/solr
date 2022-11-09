@@ -23,34 +23,55 @@
 
     <field name="fullname" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="fullname_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
-    <field name="fullname_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+    <field name="fullname_search_ascii" type="text_general_ascii" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="fullname" dest="fullname_search"/>
+    <copyField source="fullname" dest="fullname_search_ascii"/>
 
     <field name="lastname" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="lastname_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
     <field name="lastname_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
 
+    <copyField source="lastname" dest="lastname_search"/>
+    <copyField source="lastname" dest="lastname_sort"/>
+
     <field name="position" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="position_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
     <field name="position_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
 
+    <copyField source="position" dest="position_search"/>
+    <copyField source="position" dest="position_sort"/>
+
     <field name="profile" type="text_en" indexed="false" stored="true" omitNorms="true"/>
     <field name="profile_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
-    <field name="profile_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="profile" dest="profile_search"/>
 
     <field name="organisation" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="organisation_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
     <field name="organisation_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
 
+    <copyField source="organisation" dest="organisation_search"/>
+    <copyField source="organisation" dest="organisation_sort"/>
+
     <field name="organisation_type" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation_type_search" type="text_general" indexed="true" stored="true"
-           omitNorms="true"/>
+    <field name="organisation_type_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
     <field name="organisation_type_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="organisation_type" dest="organisation_type_search"/>
+    <copyField source="organisation_type" dest="organisation_type_sort"/>
 
     <field name="photo_url" type="string" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="country" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="country_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
     <field name="country_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="country" dest="country_search"/>
+    <copyField source="country" dest="country_sort"/>
+
+    <field name="is_active" type="boolean" indexed="true" stored="true"/>
+    <field name="is_active_text" type="string" indexed="true" stored="true"/>
 
     <uniqueKey>id</uniqueKey>
 
@@ -175,6 +196,25 @@
             <filter name="flattenGraph"/>
             -->
             <filter name="lowercase"/>
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer name="standard"/>
+            <filter name="stop" ignoreCase="true" words="stopwords.txt" />
+            <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+            <filter name="lowercase"/>
+        </analyzer>
+    </fieldType>
+
+    <fieldType name="text_general_ascii" class="solr.TextField" positionIncrementGap="100" multiValued="true">
+        <analyzer type="index">
+            <tokenizer name="standard"/>
+            <filter name="stop" ignoreCase="true" words="stopwords.txt" />
+            <!-- in this example, we will only use synonyms at query time
+            <filter name="synonymGraph" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
+            <filter name="flattenGraph"/>
+            -->
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
         </analyzer>
         <analyzer type="query">
             <tokenizer name="standard"/>
