@@ -32,78 +32,118 @@
     <field name="project" type="string" indexed="true" stored="true"/>
     <field name="project_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="project_search" type="text_general" indexed="true" stored="true"/>
+    <field name="project_search_ascii" type="text_general_ascii" indexed="true" stored="true"/>
+
+    <copyField source="project" dest="project_sort"/>
+    <copyField source="project" dest="project_search"/>
+    <copyField source="project" dest="project_search_ascii"/>
 
     <field name="project_title" type="string" indexed="true" stored="true"/>
     <field name="project_title_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="project_title_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="project_title" dest="project_title_sort"/>
+    <copyField source="project_title" dest="project_title_search"/>
+
     <field name="project_number" type="string" indexed="true" stored="true"/>
     <field name="project_number_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="project_number_search" type="string" indexed="true" stored="true"/>
+
+    <copyField source="project_number" dest="project_number_sort"/>
+    <copyField source="project_number" dest="project_number_search"/>
 
     <field name="project_status" type="string" indexed="true" stored="true"/>
     <field name="project_status_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="project_status_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="project_status" dest="project_status_sort"/>
+    <copyField source="project_status" dest="project_status_search"/>
+
     <field name="project_description" type="string" indexed="true" stored="true"/>
     <field name="project_description_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="project_description_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="project_description" dest="project_description_sort"/>
+    <copyField source="project_description" dest="project_description_search"/>
+
     <field name="project_summary" type="string" indexed="true" stored="true"/>
-    <field name="project_summary_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="project_summary_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="project_summary" dest="project_summary_search"/>
 
     <field name="program_id" type="pint" indexed="true" stored="true"/>
     <field name="program" type="string" indexed="true" stored="true"/>
     <field name="program_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="program_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="program" dest="program_sort"/>
+    <copyField source="program" dest="program_search"/>
+
     <field name="program_call_id" type="pint" indexed="true" stored="true"/>
     <field name="program_call" type="string" indexed="true" stored="true"/>
     <field name="program_call_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="program_call_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="program_call" dest="program_call_sort"/>
+    <copyField source="program_call" dest="program_call_search"/>
 
     <field name="primary_cluster_id" type="pint" indexed="true" stored="true"/>
     <field name="primary_cluster" type="string" indexed="true" stored="true"/>
     <field name="primary_cluster_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="primary_cluster_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="primary_cluster" dest="primary_cluster_sort"/>
+    <copyField source="primary_cluster" dest="primary_cluster_search"/>
+
     <field name="secondary_cluster_id" type="pint" indexed="true" stored="true"/>
     <field name="secondary_cluster" type="string" indexed="true" stored="true"/>
     <field name="secondary_cluster_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="secondary_cluster_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="secondary_cluster" dest="secondary_cluster_sort"/>
+    <copyField source="secondary_cluster" dest="secondary_cluster_search"/>
+
     <field name="cluster_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="cluster" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="cluster_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <copyField source="cluster" dest="cluster_search"/>
 
     <field name="organisation_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="organisation" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="organisation_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
 
+    <copyField source="organisation" dest="organisation_search"/>
+
     <field name="organisation_type_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="organisation_type" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="organisation_type_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
     <field name="organisation_type_search" type="text_general" indexed="true" stored="true"
            multiValued="true"/>
 
+    <copyField source="organisation_type" dest="organisation_type_search"/>
+
     <field name="challenge_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="challenge" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="challenge_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
     <field name="challenge_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <copyField source="challenge" dest="challenge_search"/>
 
     <field name="country_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="country" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="country_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
     <field name="country_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <copyField source="country" dest="country_search"/>
 
     <field name="contact_id" type="pint" indexed="true" stored="true"/>
     <field name="contact_fullname" type="string" indexed="true" stored="true"/>
-    <field name="contact_fullname_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="contact_fullname_search" type="text_general" indexed="true" stored="true"/>
     <field name="contact_lastname" type="string" indexed="true" stored="true"/>
     <field name="contact_lastname_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="contact_lastname_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="contact_fullname" dest="contact_fullname_search"/>
+    <copyField source="contact_lastname" dest="contact_lastname_sort"/>
+    <copyField source="contact_lastname" dest="contact_lastname_search"/>
 
     <field name="total_partners" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="active_partners" type="pint" indexed="true" stored="true" omitNorms="true"/>
@@ -259,6 +299,25 @@
         <analyzer type="query">
             <tokenizer name="standard"/>
             <filter name="stop" ignoreCase="true" words="stopwords.txt" />
+            <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+            <filter name="lowercase"/>
+        </analyzer>
+    </fieldType>
+
+    <fieldType name="text_general_ascii" class="solr.TextField" positionIncrementGap="100" multiValued="true">
+        <analyzer type="index">
+            <tokenizer name="standard"/>
+            <filter name="stop" ignoreCase="true" words="stopwords.txt"/>
+            <!-- in this example, we will only use synonyms at query time
+            <filter name="synonymGraph" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
+            <filter name="flattenGraph"/>
+            -->
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer name="standard"/>
+            <filter name="stop" ignoreCase="true" words="stopwords.txt"/>
             <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
             <filter name="lowercase"/>
         </analyzer>
