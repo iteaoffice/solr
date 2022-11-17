@@ -19,33 +19,52 @@
     <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
 
     <field name="organisation_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation" type="text_ws" indexed="true" stored="true" omitNorms="true"/>
     <field name="organisation_docref" type="string" indexed="true" stored="true" omitNorms="true"/>
+
+    <field name="organisation" type="text_ws" indexed="true" stored="true" omitNorms="true"/>
     <field name="organisation_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="organisation_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="organisation" dest="organisation_sort"/>
+    <copyField source="organisation" dest="organisation_search"/>
 
     <field name="parent_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="parent" type="text_ws" indexed="true" stored="true" omitNorms="true"/>
     <field name="parent_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="parent_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
+    <copyField source="parent" dest="parent_sort"/>
+    <copyField source="parent" dest="parent_search"/>
+
     <field name="own_parent_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="description" type="text_en" indexed="true" stored="true" omitNorms="true"/>
     <field name="description_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
+    <copyField source="description" dest="description_search"/>
+
     <field name="vat" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="vat_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="organisation_type" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation_type_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+
     <field name="organisation_type_description" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="organisation_type_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="organisation_type_search" type="text_general" indexed="true" stored="true"
            omitNorms="true"/>
 
+    <copyField source="organisation_type" dest="organisation_type_sort"/>
+    <copyField source="organisation_type_description" dest="organisation_type_search"/>
+
+    <field name="country_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="country" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_iso3" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="country_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="country_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="country" dest="country_sort"/>
+    <copyField source="country" dest="country_search"/>
+
 
     <field name="date_created" type="pdate" indexed="true" stored="true" omitNorms="true"/>
     <field name="date_updated" type="pdate" indexed="true" stored="true" omitNorms="true"/>
