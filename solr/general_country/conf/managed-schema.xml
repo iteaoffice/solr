@@ -50,6 +50,12 @@
     <field name="has_pages" type="boolean" indexed="true" stored="true"/>
     <field name="has_pages_text" type="string" indexed="true" stored="true"/>
 
+    <field name="amount_of_projects" type="pint" indexed="true" stored="true"/>
+    <field name="amount_of_partners" type="pint" indexed="true" stored="true"/>
+    <field name="amount_of_person_years" type="pfloat" indexed="true" stored="true"/>
+    <field name="amount_of_costs" type="pfloat" indexed="true" stored="true"/>
+    <field name="amount_of_impact_stories" type="pint" indexed="true" stored="true"/>
+
     <uniqueKey>id</uniqueKey>
 
     <!-- field type definitions. The "name" attribute is
