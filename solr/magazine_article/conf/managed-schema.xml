@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<schema name="news_news" version="1.6">
+<schema name="magazine_article" version="1.6">
 
     <!-- If you remove this field, you must _also_ disable the update log in solrconfig.xml
       or Solr won't start. _version_ and update log are required for SolrCloud
@@ -21,12 +21,12 @@
     <field name="news_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="docref" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="news" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="news_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="news_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+    <field name="title" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="title_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+    <field name="title_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="news" dest="news_sort"/>
-    <copyField source="news" dest="news_search"/>
+    <copyField source="title" dest="title_sort"/>
+    <copyField source="title" dest="title_search"/>
 
     <field name="sub_title" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="sub_title_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
@@ -35,49 +35,52 @@
     <copyField source="sub_title" dest="sub_title_sort"/>
     <copyField source="sub_title" dest="sub_title_search"/>
 
-    <field name="body_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="body_text_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+    <field name="description" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="description_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="body_text" dest="body_text_search"/>
+    <copyField source="description" dest="description_search"/>
 
-    <field name="highlight_description" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="highlight_description_search" type="text_general" indexed="true" stored="true"
-           omitNorms="true"/>
+    <field name="page_start" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="page_end" type="pint" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="highlight_description" dest="highlight_description_search"/>
+    <field name="hidden" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="is_hidden" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="is_hidden_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="date_published" type="pdate" indexed="true" stored="true" omitNorms="true"/>
+
     <field name="date_created" type="pdate" indexed="true" stored="true" omitNorms="true"/>
     <field name="date_updated" type="pdate" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="year" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="month" type="pint" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="on_homepage" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="on_homepage_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="magazine_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="highlight" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="highlight_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="magazine_period_ordinal" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="magazine_period_ordinal_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="internal" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="internal_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <copyField source="magazine_period_ordinal" dest="magazine_period_ordinal_sort"/>
 
-    <field name="hidden" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="hidden_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="magazine_date_published" type="pdate" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="category" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
-    <field name="category_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
-    <field name="category_search" type="text_general" indexed="true" stored="true" omitNorms="true"
-           multiValued="true"/>
 
-    <copyField source="category" dest="category_search"/>
+    <field name="html" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+    <field name="html_stripped" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+
 
     <field name="project" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="project_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
-    <field name="project_search" type="text_general" indexed="true" stored="true" omitNorms="true"
-           multiValued="true"/>
 
-    <copyField source="project" dest="project_search"/>
+    <field name="result" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="result_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+
+    <field name="organisation" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="organisation_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+
+    <field name="country" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="country_iso3" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="country_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+
+    <field name="blog" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="blog_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
 
     <uniqueKey>id</uniqueKey>
 
