@@ -30,10 +30,12 @@
 
     <field name="email" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="email_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+    <field name="email_ascii" type="text_general_ascii" indexed="true" stored="true" omitNorms="true"/>
     <field name="email_search" type="text_general" indexed="true" stored="true" omitNorms="true"
            multiValued="true"/>
 
     <copyField source="email" dest="email_sort"/>
+    <copyField source="email" dest="email_ascii"/>
     <copyField source="email" dest="email_search"/>
 
     <field name="lastname" type="string" indexed="true" stored="true" omitNorms="true"/>
@@ -127,6 +129,11 @@
     <field name="has_projects_text" type="string" indexed="true" stored="true"/>
     <field name="has_organisation" type="boolean" indexed="true" stored="true"/>
     <field name="has_organisation_text" type="string" indexed="true" stored="true"/>
+
+    <field name="can_be_deleted" type="boolean" indexed="true" stored="true"/>
+    <field name="can_be_deleted_text" type="string" indexed="true" stored="true"/>
+    <field name="can_be_anonymised" type="boolean" indexed="true" stored="true"/>
+    <field name="can_be_anonymised_text" type="string" indexed="true" stored="true"/>
 
     <field name="photo_url" type="string" indexed="true" stored="true" omitNorms="true"/>
 

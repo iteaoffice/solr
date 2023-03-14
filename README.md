@@ -1,10 +1,8 @@
-# solr
+# SoloDB SOLR
 
-Dedicated SOLR docker container for ITEA search engines
+Dedicated SOLR docker container for SOLR search engines, based on SOLR latest
 
-Based on SOLR latest
-
-Code to bulk update cores
+## Bulk update cores
 
 ```bash
 find ./ -name 'core.properties' -type f -exec sed -i 's/name=/name=itea_dev_/g' {} \;
@@ -33,10 +31,10 @@ Install SOLR (latest version)
 ```shell
 sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install default-jdk
-wget https://www.apache.org/dyn/closer.lua/solr/solr/9.0.0/solr-9.0.0.tgz?action=download
-mv solr-9.0.0.tgz?action=download solr-9.0.0.tgz
-tar xzf solr-9.0.0.tgz
-sudo bash solr-9.0.0/bin/install_solr_service.sh solr-9.0.0.tgz
+wget https://www.apache.org/dyn/closer.lua/solr/solr/9.1.0/solr-9.1.0.tgz?action=download
+mv solr-9.1.0.tgz?action=download solr-9.1.0.tgz
+tar xzf solr-9.1.0.tgz
+sudo bash solr-9.1.0/bin/install_solr_service.sh solr-9.1.0.tgz
 ```
 
 Change /etc/default/solr.in.sh so solr listens to 0.0.0.0
