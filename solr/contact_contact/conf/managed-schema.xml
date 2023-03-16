@@ -134,6 +134,8 @@
     <field name="can_be_deleted_text" type="string" indexed="true" stored="true"/>
     <field name="can_be_anonymised" type="boolean" indexed="true" stored="true"/>
     <field name="can_be_anonymised_text" type="string" indexed="true" stored="true"/>
+    <field name="will_be_auto_removed" type="boolean" indexed="true" stored="true"/>
+    <field name="will_be_auto_removed_text" type="string" indexed="true" stored="true"/>
 
     <field name="photo_url" type="string" indexed="true" stored="true" omitNorms="true"/>
 
