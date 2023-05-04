@@ -142,12 +142,12 @@
     <copyField source="source" dest="source_sort"/>
     <copyField source="source" dest="source_search"/>
 
-    <field name="planned" type="string" indexed="true" stored="true"/>
-    <field name="planned_sort" type="text_gen_sort" indexed="true" stored="true"/>
-    <field name="planned_search" type="text_general" indexed="true" stored="true"/>
+    <field name="deadline" type="string" indexed="true" stored="true"/>
+    <field name="deadline_sort" type="text_gen_sort" indexed="true" stored="true"/>
+    <field name="deadline_search" type="text_general" indexed="true" stored="true"/>
 
-    <copyField source="planned" dest="planned_sort"/>
-    <copyField source="planned" dest="planned_search"/>
+    <copyField source="deadline" dest="deadline_sort"/>
+    <copyField source="deadline" dest="deadline_search"/>
 
     <field name="program_call_id" type="pint" indexed="true" stored="true"/>
     <field name="program_call" type="string" indexed="true" stored="true"/>
