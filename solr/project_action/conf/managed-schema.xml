@@ -24,7 +24,6 @@
     <field name="action_number_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="action_number_search" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-
     <copyField source="action_number" dest="action_number_search"/>
 
     <field name="project_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
@@ -35,7 +34,6 @@
 
     <copyField source="project" dest="project_sort"/>
     <copyField source="project" dest="project_search"/>
-
 
 
     <field name="project_title" type="string" indexed="true" stored="true"/>
@@ -117,6 +115,7 @@
     <field name="date_updated" type="pdate" indexed="true" stored="true"/>
     <field name="date_closed" type="pdate" indexed="true" stored="true"/>
     <field name="date_status" type="pdate" indexed="true" stored="true"/>
+    <field name="date_checked" type="pdate" indexed="true" stored="true"/>
 
     <field name="contact_closed" type="string" indexed="true" stored="true"/>
     <field name="contact_closed_sort" type="text_gen_sort" indexed="true" stored="true"/>
