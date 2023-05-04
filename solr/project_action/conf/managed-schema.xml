@@ -129,6 +129,12 @@
 
     <copyField source="contact_status" dest="contact_status_search"/>
 
+    <field name="contact_checked" type="string" indexed="true" stored="true"/>
+    <field name="contact_checked_sort" type="text_gen_sort" indexed="true" stored="true"/>
+    <field name="contact_checked_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="contact_checked" dest="contact_checked_search"/>
+
     <field name="source" type="string" indexed="true" stored="true"/>
     <field name="source_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="source_search" type="text_general" indexed="true" stored="true"/>
