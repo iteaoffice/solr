@@ -20,15 +20,14 @@
 
     <field name="idea_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="idea_docref" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="idea_complete" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+
 
     <field name="idea" type="string" indexed="true" stored="true"/>
     <field name="idea_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="idea_search" type="text_general" indexed="true" stored="true"/>
 
-    <field name="idea_title" type="string" indexed="true" stored="true"/>
-    <field name="idea_title_sort" type="text_gen_sort" indexed="true" stored="true"/>
-    <field name="idea_title_search" type="text_general" indexed="true" stored="true"/>
+    <copyField source="idea" dest="idea_search"/>
+    <copyField source="idea" dest="idea_sort"/>
 
     <field name="idea_number" type="string" indexed="true" stored="true"/>
     <field name="idea_number_sort" type="string" indexed="true" stored="true"/>
@@ -36,19 +35,48 @@
     <field name="idea_number_sort_number" type="pint" indexed="true" stored="true"/>
     <field name="idea_number_search" type="string" indexed="true" stored="true"/>
 
+    <copyField source="idea_number" dest="idea_number_search"/>
+    <copyField source="idea_number" dest="idea_number_sort"/>
+
+
+    <field name="date_created" type="pdate" indexed="true" stored="true" omitNorms="true"/>
+    <field name="date_updated" type="pdate" indexed="true" stored="true" omitNorms="true"/>
+
+    <field name="idea_title" type="string" indexed="true" stored="true"/>
+    <field name="idea_title_sort" type="text_gen_sort" indexed="true" stored="true"/>
+    <field name="idea_title_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="idea_title" dest="idea_title_search"/>
+    <copyField source="idea_title" dest="idea_title_sort"/>
+
+
     <field name="tool_id" type="pint" indexed="true" stored="true"/>
     <field name="tool" type="string" indexed="true" stored="true"/>
     <field name="tool_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="tool_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="tool" dest="tool_search"/>
+    <copyField source="tool" dest="tool_sort"/>
+
     <field name="key_selling_points" type="string" indexed="true" stored="true"/>
     <field name="key_selling_points_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="key_selling_points" dest="key_selling_points_search"/>
+
     <field name="short_description" type="string" indexed="true" stored="true"/>
     <field name="short_description_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="short_description" dest="short_description_search"/>
+
     <field name="already_involved" type="string" indexed="true" stored="true"/>
     <field name="already_involved_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="already_involved" dest="already_involved_search"/>
+
     <field name="looking_for" type="string" indexed="true" stored="true"/>
     <field name="looking_for_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="looking_for" dest="looking_for_search"/>
 
     <field name="program_call_id" type="pint" indexed="true" stored="true"/>
     <field name="program_call" type="string" indexed="true" stored="true"/>
@@ -56,57 +84,84 @@
     <field name="program_call_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="program_call_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="program_call" dest="program_call_search"/>
+    <copyField source="program_call" dest="program_call_sort"/>
+
     <field name="meeting_id" type="pint" indexed="true" stored="true"/>
     <field name="meeting" type="string" indexed="true" stored="true"/>
     <field name="meeting_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="meeting_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="meeting" dest="meeting_search"/>
+    <copyField source="meeting" dest="meeting_sort"/>
 
     <field name="contact_id" type="pint" indexed="true" stored="true"/>
     <field name="contact_fullname" type="string" indexed="true" stored="true"/>
     <field name="contact_fullname_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="contact_fullname_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="contact_fullname" dest="contact_fullname_search"/>
+    <copyField source="contact_fullname" dest="contact_fullname_sort"/>
+
     <field name="contact_lastname" type="string" indexed="true" stored="true"/>
     <field name="contact_lastname_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="contact_lastname_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="contact_lastname" dest="contact_lastname_search"/>
+    <copyField source="contact_lastname" dest="contact_lastname_sort"/>
 
     <field name="contact_organisation" type="string" indexed="true" stored="true"/>
     <field name="contact_organisation_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="contact_organisation_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="contact_organisation" dest="contact_organisation_search"/>
+    <copyField source="contact_organisation" dest="contact_organisation_sort"/>
+
     <field name="contact_organisation_type" type="string" indexed="true" stored="true"/>
     <field name="contact_organisation_type_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="contact_organisation_type_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="contact_organisation_type" dest="contact_organisation_type_search"/>
+    <copyField source="contact_organisation_type" dest="contact_organisation_type_sort"/>
 
     <field name="contact_country" type="string" indexed="true" stored="true"/>
     <field name="contact_country_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="contact_country_iso3" type="string" indexed="true" stored="true"/>
     <field name="contact_country_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="contact_country" dest="contact_country_search"/>
+    <copyField source="contact_country" dest="contact_country_sort"/>
+
     <field name="organisation_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="organisation" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="organisation_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
     <field name="organisation_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <copyField source="organisation" dest="organisation_search"/>
 
     <field name="organisation_type_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="organisation_type" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="organisation_type_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
     <field name="organisation_type_search" type="text_general" indexed="true" stored="true"
            multiValued="true"/>
 
+    <copyField source="organisation_type" dest="organisation_type_search"/>
+
     <field name="challenge_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="challenge" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="challenge_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
     <field name="challenge_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <copyField source="challenge" dest="challenge_search"/>
 
     <field name="country_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="country" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="country_iso3" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="country_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
     <field name="country_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <copyField source="country" dest="country_search"/>
 
     <field name="keyword" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="keyword_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <copyField source="keyword" dest="keyword_search"/>
 
     <field name="has_posters_for_poster_session" type="boolean" indexed="true" stored="true"/>
     <field name="has_posters_for_poster_session_text" type="string" indexed="true" stored="true"/>

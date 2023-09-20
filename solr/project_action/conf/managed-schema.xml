@@ -95,8 +95,6 @@
     <copyField source="status" dest="status_sort"/>
     <copyField source="status" dest="status_search"/>
 
-    <field name="is_open" type="boolean" indexed="true" stored="true"/>
-    <field name="is_open_text" type="string" indexed="true" stored="true"/>
     <field name="is_closed" type="boolean" indexed="true" stored="true"/>
     <field name="is_closed_text" type="string" indexed="true" stored="true"/>
     <field name="is_done" type="boolean" indexed="true" stored="true"/>
@@ -107,9 +105,6 @@
     <field name="is_recommended_text" type="string" indexed="true" stored="true"/>
     <field name="is_approved" type="boolean" indexed="true" stored="true"/>
     <field name="is_approved_text" type="string" indexed="true" stored="true"/>
-
-    <field name="is_plannable" type="boolean" indexed="true" stored="true"/>
-    <field name="is_plannable_text" type="string" indexed="true" stored="true"/>
 
     <field name="date_created" type="pdate" indexed="true" stored="true"/>
     <field name="date_updated" type="pdate" indexed="true" stored="true"/>
