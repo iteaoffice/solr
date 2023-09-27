@@ -23,14 +23,25 @@
     <field name="description" type="string" indexed="true" stored="true"/>
     <field name="description_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="description_search" type="text_general" indexed="true" stored="true"/>
+
+
+    <copyField source="description" dest="description_search"/>
+    <copyField source="description" dest="description_sort"/>
+
     <field name="description_date" type="pdate" indexed="true" stored="true"/>
     <field name="description_year" type="pint" indexed="true" stored="true"/>
 
     <field name="description_content" type="text_general" indexed="true" stored="true"/>
     <field name="description_content_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="description_content" dest="description_content_search"/>
+
     <field name="description_abstract" type="text_general" indexed="true" stored="true"/>
     <field name="description_abstract_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="description_abstract" dest="description_abstract_search"/>
+
+    <field name="is_main_description" type="boolean" indexed="true" stored="true"/>
 
     <field name="project_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="project_docref" type="string" indexed="true" stored="true" omitNorms="true"/>
@@ -39,17 +50,29 @@
     <field name="project_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="project_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="project" dest="project_search"/>
+    <copyField source="project" dest="project_sort"/>
+
     <field name="project_number" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="project_number_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="project_number_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="project_number" dest="project_number_search"/>
+    <copyField source="project_number" dest="project_number_sort"/>
 
     <field name="project_title" type="string" indexed="true" stored="true"/>
     <field name="project_title_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="project_title_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="project_title" dest="project_title_search"/>
+    <copyField source="project_title" dest="project_title_sort"/>
+
     <field name="project_status" type="string" indexed="true" stored="true"/>
     <field name="project_status_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="project_status_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="project_status" dest="project_status_search"/>
+    <copyField source="project_status" dest="project_status_sort"/>
 
     <field name="project_is_successful" type="boolean" indexed="true" stored="true"/>
 
@@ -57,48 +80,55 @@
     <field name="project_description_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="project_description_search" type="text_general" indexed="true" stored="true"/>
 
+    <copyField source="project_description" dest="project_description_search"/>
+    <copyField source="project_description" dest="project_description_sort"/>
+
     <field name="project_summary" type="string" indexed="true" stored="true"/>
     <field name="project_summary_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="project_summary_search" type="text_general" indexed="true" stored="true"/>
 
-    <field name="program_call_id" type="pint" indexed="true" stored="true" multiValued="true"/>
-    <field name="program_call" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="program_call_short" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="program_call_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
-    <field name="program_call_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+    <copyField source="project_summary" dest="project_summary_search"/>
+    <copyField source="project_summary" dest="project_summary_sort"/>
+
+    <field name="program_call_id" type="pint" indexed="true" stored="true"/>
+    <field name="program_call_short" type="string" indexed="true" stored="true"/>
+
+    <field name="program_call" type="string" indexed="true" stored="true"/>
+    <field name="program_call_sort" type="text_gen_sort" indexed="true" stored="true"/>
+    <field name="program_call_search" type="text_general" indexed="true" stored="true"/>
+
+    <copyField source="program_call" dest="program_call_search"/>
+    <copyField source="program_call" dest="program_call_sort"/>
 
     <field name="organisation_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="organisation" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="organisation_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
     <field name="organisation_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <copyField source="organisation" dest="organisation_search"/>
 
     <field name="organisation_type_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="organisation_type" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="organisation_type_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
-    <field name="organisation_type_search" type="text_general" indexed="true" stored="true"
-           multiValued="true"/>
+    <field name="organisation_type_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <copyField source="organisation_type" dest="organisation_type_search"/>
 
     <field name="country_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="country" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="country_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
     <field name="country_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <copyField source="country" dest="country_search"/>
 
     <field name="contact_id" type="pint" indexed="true" stored="true" multiValued="true"/>
     <field name="contact_fullname" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="contact_fullname_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
-    <field name="contact_fullname_search" type="text_general" indexed="true" stored="true"
-           multiValued="true"/>
-    <field name="contact_lastname" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="contact_lastname_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
-    <field name="contact_lastname_search" type="text_general" indexed="true" stored="true"
-           multiValued="true"/>
+    <field name="contact_fullname_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
 
+    <copyField source="contact_fullname" dest="contact_fullname_search"/>
 
     <field name="challenge_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="challenge" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="challenge_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
-    <field name="challenge_label" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="challenge_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
+
+    <copyField source="challenge" dest="challenge_search"/>
 
     <uniqueKey>id</uniqueKey>
 
