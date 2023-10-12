@@ -22,9 +22,11 @@
     <field name="contact_hash" type="string" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="fullname" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="fullname_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="fullname_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
     <field name="fullname_search_ascii" type="text_general_ascii" indexed="true" stored="true" omitNorms="true"/>
 
+    <copyField source="fullname" dest="fullname_sort"/>
     <copyField source="fullname" dest="fullname_search"/>
     <copyField source="fullname" dest="fullname_search_ascii"/>
 

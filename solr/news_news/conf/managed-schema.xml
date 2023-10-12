@@ -65,19 +65,26 @@
     <field name="hidden" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="hidden_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="category" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="category_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="category" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="category_search" type="text_general" indexed="true" stored="true" omitNorms="true"
            multiValued="true"/>
 
     <copyField source="category" dest="category_search"/>
 
-    <field name="project" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="project_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="project" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="project_search" type="text_general" indexed="true" stored="true" omitNorms="true"
            multiValued="true"/>
 
     <copyField source="project" dest="project_search"/>
+
+    <field name="organisation_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="organisation" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="organisation_search" type="text_general" indexed="true" stored="true" omitNorms="true"
+           multiValued="true"/>
+
+    <copyField source="organisation" dest="organisation_search"/>
 
     <uniqueKey>id</uniqueKey>
 
