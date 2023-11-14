@@ -26,6 +26,8 @@
 
     <copyField source="action_number" dest="action_number_search"/>
 
+    <field name="action_sort" type="pint" indexed="true" stored="true" omitNorms="true"/>
+
     <field name="project_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="project_docref" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="project" type="string" indexed="true" stored="true"/>
