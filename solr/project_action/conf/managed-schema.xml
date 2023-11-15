@@ -108,6 +108,9 @@
     <field name="is_approved" type="boolean" indexed="true" stored="true"/>
     <field name="is_approved_text" type="string" indexed="true" stored="true"/>
 
+    <field name="is_visible_for_project" type="boolean" indexed="true" stored="true"/>
+    <field name="is_visible_for_project_text" type="string" indexed="true" stored="true"/>
+
     <field name="date_created" type="pdate" indexed="true" stored="true"/>
     <field name="date_updated" type="pdate" indexed="true" stored="true"/>
     <field name="date_closed" type="pdate" indexed="true" stored="true"/>
