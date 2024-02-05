@@ -109,7 +109,7 @@
 
     <copyField source="cluster" dest="cluster_search"/>
 
-    <field name="project_role_user_id" type="prints" indexed="true" stored="true"/>
+    <field name="project_role_user_id" type="pints" indexed="true" stored="true"/>
     <field name="project_roles" type="strings" indexed="true" stored="true"/>
 
     <field name="organisation_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
