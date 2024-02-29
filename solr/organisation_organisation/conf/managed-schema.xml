@@ -75,7 +75,7 @@
     <field name="affiliations" type="pint" indexed="true" stored="true"/>
     <field name="projects" type="pint" indexed="true" stored="true"/>
     <field name="projects_on_website" type="pint" indexed="true" stored="true"/>
-    <field name="projects_on_website_since_ten_years" type="pint" indexed="true" stored="true"/>
+    <field name="projects_on_website_last_ten_years" type="pint" indexed="true" stored="true"/>
     <field name="contacts" type="pint" indexed="true" stored="true"/>
     <field name="invoices" type="pint" indexed="true" stored="true"/>
 
