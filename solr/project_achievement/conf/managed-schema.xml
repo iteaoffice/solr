@@ -171,6 +171,8 @@
     <field name="is_top8" type="boolean" indexed="true" stored="true"/>
     <field name="is_top8_text" type="string" indexed="true" stored="true"/>
 
+    <field name="is_exploitable_result" type="boolean" indexed="true" stored="true"/>
+
     <uniqueKey>id</uniqueKey>
 
     <!-- field type definitions. The "name" attribute is
