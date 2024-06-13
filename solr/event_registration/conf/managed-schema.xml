@@ -146,27 +146,47 @@
     <copyField source="profile" dest="profile_sort"/>
     <copyField source="profile" dest="profile_search"/>
 
-    <field name="organisation" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+    <field name="organisation_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="organisation_docref" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="organisation_name" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="organisation_name_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+    <field name="organisation_name_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="organisation" dest="organisation_sort"/>
-    <copyField source="organisation" dest="organisation_search"/>
+    <copyField source="organisation_name" dest="organisation_name_sort"/>
+    <copyField source="organisation_name" dest="organisation_name_search"/>
 
-    <field name="organisation_type" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation_type_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation_type_search" type="text_general" indexed="true" stored="true"
+    <field name="organisation_type_type" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="organisation_type_type_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+    <field name="organisation_type_type_search" type="text_general" indexed="true" stored="true"
            omitNorms="true"/>
 
-    <copyField source="organisation_type" dest="organisation_type_sort"/>
-    <copyField source="organisation_type" dest="organisation_type_search"/>
+    <copyField source="organisation_type_type" dest="organisation_type_type_sort"/>
+    <copyField source="organisation_type_type" dest="organisation_type_type_search"/>
 
-    <field name="country" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="country_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="country_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+    <field name="organisation_type_description" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="organisation_type_description_sort" type="text_gen_sort" indexed="true" stored="true"
+           omitNorms="true"/>
+    <field name="organisation_type_description_search" type="text_general" indexed="true" stored="true"
+           omitNorms="true"/>
 
-    <copyField source="country" dest="country_sort"/>
-    <copyField source="country" dest="country_search"/>
+    <copyField source="organisation_type_description" dest="organisation_type_description_sort"/>
+    <copyField source="organisation_type_description" dest="organisation_type_description_search"/>
+
+    <field name="country_id" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_docref" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_name" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_name_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_name_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="country_name" dest="country_name_sort"/>
+    <copyField source="country_name" dest="country_name_search"/>
+
+    <field name="country_iso3" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_iso3_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_iso3_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="country_iso3" dest="country_iso3_sort"/>
+    <copyField source="country_iso3" dest="country_iso3_search"/>
 
     <field name="photo_url" type="string" indexed="true" stored="true" omitNorms="true"/>
 
