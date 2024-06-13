@@ -157,19 +157,10 @@
 
     <field name="photo_url" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <dynamicField name="registration_option_*" type="string" indexed="true" stored="true"/>
-    <dynamicField name="registration_option_sort_*" type="text_gen_sort" indexed="true" stored="true"/>
-    <dynamicField name="registration_option_array_*" type="string" indexed="true" stored="true" multiValued="true"/>
-    <dynamicField name="registration_option_date_*" type="pdate" indexed="true" stored="true"/>
-    <dynamicField name="registration_option_integer_*" type="pint" indexed="true" stored="true"/>
-
+    <dynamicField name="registration_option_value_*" type="string" indexed="true" stored="true"/>
+    <dynamicField name="registration_option_friendly_array_value_*" type="string" indexed="true" stored="true"
+                  multiValued="true"/>
     <dynamicField name="registration_option_friendly_value_*" type="string" indexed="true" stored="true"/>
-    <dynamicField name="registration_option_friendly_value_search_*" type="text_general" indexed="true" stored="true"/>
-    <dynamicField name="registration_option_friendly_value_sort_*" type="text_gen_sort" indexed="true" stored="true"/>
-
-    <copyField source="registration_option_friendly_value_*" dest="registration_option_friendly_value_search_*"/>
-    <copyField source="registration_option_friendly_value_*" dest="registration_option_friendly_value_sort_*"/>
-    <copyField source="registration_option_*" dest="registration_option_sort_*"/>
 
     <uniqueKey>id</uniqueKey>
 
