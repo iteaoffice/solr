@@ -38,8 +38,13 @@
     <field name="has_costs" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="has_costs_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
+    <field name="desk_costs" type="pfloat" indexed="true" stored="true" omitNorms="true"/>
+
     <field name="has_paid" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="has_paid_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+
+    <field name="require_payment" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="require_payment_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="has_desk" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="has_desk_text" type="string" indexed="true" stored="true" omitNorms="true"/>
