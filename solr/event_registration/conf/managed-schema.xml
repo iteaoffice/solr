@@ -104,7 +104,10 @@
 
     <field name="contact_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_hash" type="string" indexed="true" stored="true" omitNorms="true"/>
+
     <field name="contact_is_funder" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="contact_is_funder_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="contact_funder_country_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_funder_country_name" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_funder_country_iso3" type="string" indexed="true" stored="true" omitNorms="true"/>
 
