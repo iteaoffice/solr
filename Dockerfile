@@ -7,6 +7,7 @@ ENV SOLR_OPTS="-XX:-UseLargePages"
 ADD --chown=solr:solr solr/calendar_calendar /var/solr/data/calendar_calendar
 ADD --chown=solr:solr solr/contact_contact /var/solr/data/contact_contact
 ADD --chown=solr:solr solr/contact_profile /var/solr/data/contact_profile
+ADD --chown=solr:solr solr/event_meeting /var/solr/data/event_meeting
 ADD --chown=solr:solr solr/event_registration /var/solr/data/event_registration
 ADD --chown=solr:solr solr/general_country /var/solr/data/general_country
 ADD --chown=solr:solr solr/idea_idea /var/solr/data/idea_idea

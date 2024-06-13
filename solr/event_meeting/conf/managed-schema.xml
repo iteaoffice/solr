@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<schema name="event_registration" version="1.6">
+<schema name="event_meeting" version="1.6">
 
     <!-- If you remove this field, you must _also_ disable the update log in solrconfig.xml
       or Solr won't start. _version_ and update log are required for SolrCloud
@@ -17,56 +17,7 @@
      installations. See the <uniqueKey> declaration below where <uniqueKey> is set to "id".
    -->
     <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
-
-    <field name="registration_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="meeting_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
-
-    <field name="date_created" type="pdate" indexed="true" stored="true" omitNorms="true"/>
-    <field name="date_updated" type="pdate" indexed="true" stored="true" omitNorms="true"/>
-    <field name="date_end" type="pdate" indexed="true" stored="true" omitNorms="true"/>
-
-    <field name="is_cancelled" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="is_cancelled_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-
-    <field name="is_overbooked" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="is_passed_overbooked" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="overbooked_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-
-    <field name="is_hide_in_list" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="hide_in_list_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-
-    <field name="has_costs" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="has_costs_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-
-    <field name="has_paid" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="has_paid_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-
-    <field name="has_desk" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="has_desk_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-
-    <field name="checked_in" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="checked_in_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-
-    <field name="has_invoice" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="invoice_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="has_invoice_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-
-    <field name="meeting_days_id" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
-    <field name="meeting_days_days" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
-
-    <field name="blocked_timeslots_id" type="string" indexed="true" stored="true" omitNorms="true"
-           multiValued="true"/>
-    <field name="blocked_timeslots_days" type="string" indexed="true" stored="true" omitNorms="true"
-           multiValued="true"/>
-
-    <field name="status_enum" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="status_date" type="pdate" indexed="true" stored="true" omitNorms="true"/>
-    <field name="status_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="status_is_active" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-
-    <field name="is_b2b_available_for_meetings" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="is_b2b_available_for_meetings_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-
     <field name="meeting" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="meeting_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="meeting_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
@@ -74,102 +25,67 @@
     <copyField source="meeting" dest="meeting_sort"/>
     <copyField source="meeting" dest="meeting_search"/>
 
-    <field name="meeting_has_tool" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_has_tool_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_tool_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_tool_name" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="vat_number" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="description" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="location" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="meeting_has_programcall" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_has_programcall_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_programcall_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_programcall_call" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="date_from" type="pdate" indexed="true" stored="true" omitNorms="true"/>
+    <field name="date_until" type="pdate" indexed="true" stored="true" omitNorms="true"/>
+    <field name="date_registration_open" type="pdate" indexed="true" stored="true" omitNorms="true"/>
+    <field name="date_registration_close" type="pdate" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="meeting_require_nda" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_require_nda_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="is_registration_open" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="is_passed" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="is_upcoming" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="is_live" type="boolean" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="has_nda" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="has_nda_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="nda_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="nda_is_approved" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="nda_is_approved_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="participants" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="amount_of_total_registrations" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="amount_of_active_registrations" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="amount_of_cancelled_registrations" type="pint" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="meeting_has_country" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_has_country_text" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_country_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_country_name" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_country_iso3" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="status_enum" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="status_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="status_is_active" type="boolean" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="meeting_has_access" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="meeting_has_access_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_costs" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_costs_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_projects" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_projects_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_registration" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_registration_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="contact_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="contact_hash" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="is_visible" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="is_visible_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="fullname" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="fullname_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="fullname_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+    <field name="type" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="type_is_online" type="boolean" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="fullname" dest="fullname_sort"/>
-    <copyField source="fullname" dest="fullname_search"/>
+    <field name="meeting_days_id" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+    <field name="meeting_days_days" type="string" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
 
-    <field name="lastname" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="lastname_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="lastname_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_access" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_access_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="lastname" dest="lastname_sort"/>
-    <copyField source="lastname" dest="lastname_search"/>
+    <field name="has_tool" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_tool_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="tool_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="tool_name" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="position" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="position_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="position_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_programcall" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_programcall_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="programcall_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="programcall_call" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="position" dest="position_sort"/>
-    <copyField source="position" dest="position_search"/>
+    <field name="require_nda" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="require_nda_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="profile" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="profile_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="profile_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_country" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_country_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_name" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="country_iso3" type="string" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="profile" dest="profile_sort"/>
-    <copyField source="profile" dest="profile_search"/>
-
-    <field name="organisation" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
-
-    <copyField source="organisation" dest="organisation_sort"/>
-    <copyField source="organisation" dest="organisation_search"/>
-
-    <field name="organisation_type" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation_type_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="organisation_type_search" type="text_general" indexed="true" stored="true"
-           omitNorms="true"/>
-
-    <copyField source="organisation_type" dest="organisation_type_sort"/>
-    <copyField source="organisation_type" dest="organisation_type_search"/>
-
-    <field name="country" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="country_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
-    <field name="country_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
-
-    <copyField source="country" dest="country_sort"/>
-    <copyField source="country" dest="country_search"/>
-
-    <field name="photo_url" type="string" indexed="true" stored="true" omitNorms="true"/>
-
-    <dynamicField name="registration_option_*" type="string" indexed="true" stored="true"/>
-    <dynamicField name="registration_option_sort_*" type="text_gen_sort" indexed="true" stored="true"/>
-    <dynamicField name="registration_option_array_*" type="string" indexed="true" stored="true" multiValued="true"/>
-    <dynamicField name="registration_option_date_*" type="pdate" indexed="true" stored="true"/>
-    <dynamicField name="registration_option_integer_*" type="pint" indexed="true" stored="true"/>
-
-    <dynamicField name="registration_option_friendly_value_*" type="string" indexed="true" stored="true"/>
-    <dynamicField name="registration_option_friendly_value_search_*" type="text_general" indexed="true" stored="true"/>
-    <dynamicField name="registration_option_friendly_value_sort_*" type="text_gen_sort" indexed="true" stored="true"/>
-
-    <copyField source="registration_option_friendly_value_*" dest="registration_option_friendly_value_search_*"/>
-    <copyField source="registration_option_friendly_value_*" dest="registration_option_friendly_value_sort_*"/>
-    <copyField source="registration_option_*" dest="registration_option_sort_*"/>
 
     <uniqueKey>id</uniqueKey>
 
