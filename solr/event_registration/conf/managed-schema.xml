@@ -130,6 +130,8 @@
     <copyField source="lastname" dest="lastname_sort"/>
     <copyField source="lastname" dest="lastname_search"/>
 
+    <field name="email" type="string" indexed="true" stored="true" omitNorms="true"/>
+
     <field name="position" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="position_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="position_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
