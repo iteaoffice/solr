@@ -69,6 +69,7 @@
     <field name="status_date" type="pdate" indexed="true" stored="true" omitNorms="true"/>
     <field name="status_text" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="status_is_active" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="status_is_cancelled" type="boolean" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="is_b2b_available_for_meetings" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="is_b2b_available_for_meetings_text" type="string" indexed="true" stored="true" omitNorms="true"/>
