@@ -37,6 +37,7 @@
     <field name="is_registration_open" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="is_passed" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="is_upcoming" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="is_search_engine_active" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="is_live" type="boolean" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="participants" type="pint" indexed="true" stored="true" omitNorms="true"/>
