@@ -65,6 +65,7 @@
            multiValued="true"/>
 
     <field name="status_enum" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="status_sort" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="status_date" type="pdate" indexed="true" stored="true" omitNorms="true"/>
     <field name="status_text" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="status_is_active" type="boolean" indexed="true" stored="true" omitNorms="true"/>
