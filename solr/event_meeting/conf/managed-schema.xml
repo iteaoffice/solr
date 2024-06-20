@@ -27,7 +27,13 @@
 
     <field name="vat_number" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="description" type="string" indexed="true" stored="true" omitNorms="true"/>
+
     <field name="location" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="location_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+    <field name="location_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="location" dest="location_sort"/>
+    <copyField source="location" dest="location_search"/>
 
     <field name="date_from" type="pdate" indexed="true" stored="true" omitNorms="true"/>
     <field name="date_until" type="pdate" indexed="true" stored="true" omitNorms="true"/>
