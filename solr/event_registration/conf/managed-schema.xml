@@ -21,6 +21,11 @@
     <field name="registration_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="meeting_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
 
+    <field name="meeting_date_from" type="pdate" indexed="true" stored="true" omitNorms="true"/>
+    <field name="meeting_date_until" type="pdate" indexed="true" stored="true" omitNorms="true"/>
+    <field name="meeting_date_registration_open" type="pdate" indexed="true" stored="true" omitNorms="true"/>
+    <field name="meeting_date_registration_close" type="pdate" indexed="true" stored="true" omitNorms="true"/>
+
     <field name="date_created" type="pdate" indexed="true" stored="true" omitNorms="true"/>
     <field name="date_updated" type="pdate" indexed="true" stored="true" omitNorms="true"/>
     <field name="date_end" type="pdate" indexed="true" stored="true" omitNorms="true"/>
