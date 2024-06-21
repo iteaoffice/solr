@@ -37,8 +37,6 @@
     <field name="date_updated" type="pdate" indexed="true" stored="true" omitNorms="true"/>
     <field name="date_end" type="pdate" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="has_ticket" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="has_ticket_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="is_cancelled" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="is_cancelled_text" type="string" indexed="true" stored="true" omitNorms="true"/>
@@ -66,6 +64,9 @@
 
     <field name="checked_in" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="checked_in_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+
+    <field name="is_confirmed" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="is_confirmed_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="has_invoice" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="invoice_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
