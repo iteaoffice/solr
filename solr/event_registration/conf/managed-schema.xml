@@ -128,6 +128,11 @@
     <field name="contact_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_hash" type="string" indexed="true" stored="true" omitNorms="true"/>
 
+    
+
+    <field name="contact_profile_is_visible_on_community" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="contact_profile_is_visible_on_community_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+
     <field name="contact_is_funder" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_is_funder_text" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_funder_country_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
@@ -156,6 +161,13 @@
 
     <copyField source="position" dest="position_sort"/>
     <copyField source="position" dest="position_search"/>
+
+    <field name="department" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="department_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+    <field name="department_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="department" dest="department_sort"/>
+    <copyField source="department" dest="department_search"/>
 
     <field name="profile" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="profile_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
