@@ -37,6 +37,9 @@
     <field name="date_updated" type="pdate" indexed="true" stored="true" omitNorms="true"/>
     <field name="date_end" type="pdate" indexed="true" stored="true" omitNorms="true"/>
 
+    <field name="has_ticket" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_ticket_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+
     <field name="is_cancelled" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="is_cancelled_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
