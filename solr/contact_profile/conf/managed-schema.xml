@@ -106,6 +106,8 @@
     <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
     <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
 
+    <field name="text" type="text_general" indexed="true" stored="false" multiValued="true"/>
+
     <!--
       Numeric field types that index values using KD-trees.
       Point fields don't support FieldCache, so they must have docValues="true" if needed for sorting, faceting, functions, etc.
