@@ -125,6 +125,10 @@
     <field name="meeting_has_access" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="meeting_has_access_text" type="string" indexed="true" stored="true" omitNorms="true"/>
 
+    <field name="contact_has_idea" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="contact_has_idea_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="contact_idea_id_list" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
+
     <field name="contact_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_hash" type="string" indexed="true" stored="true" omitNorms="true"/>
 
