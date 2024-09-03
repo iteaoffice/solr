@@ -95,6 +95,10 @@
     <copyField source="meeting" dest="meeting_search"/>
     <copyField source="meeting" dest="meeting_sort"/>
 
+    <field name="contact_is_registered" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="contact_is_registered_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="contact_registration_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
+
     <field name="contact_id" type="pint" indexed="true" stored="true"/>
     <field name="contact_fullname" type="string" indexed="true" stored="true"/>
     <field name="contact_fullname_sort" type="text_gen_sort" indexed="true" stored="true"/>
