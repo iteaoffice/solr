@@ -84,6 +84,9 @@
     <field name="has_presentation" type="boolean" indexed="true" stored="true"/>
     <field name="has_presentation_text" type="string" indexed="true" stored="true"/>
 
+    <field name="is_hidden" type="boolean" indexed="true" stored="true"/>
+    <field name="is_hidden_text" type="string" indexed="true" stored="true"/>
+
     <field name="program_call_id" type="pint" indexed="true" stored="true"/>
     <field name="program_call" type="string" indexed="true" stored="true"/>
     <field name="program_call_short" type="string" indexed="true" stored="true"/>
