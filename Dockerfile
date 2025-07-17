@@ -13,6 +13,7 @@ ADD --chown=solr:solr solr/general_country /var/solr/data/general_country
 ADD --chown=solr:solr solr/idea_idea /var/solr/data/idea_idea
 ADD --chown=solr:solr solr/invoice_invoice /var/solr/data/invoice_invoice
 ADD --chown=solr:solr solr/magazine_article /var/solr/data/magazine_article
+ADD --chown=solr:solr solr/mailing_email_message /var/solr/data/mailing_email_message
 ADD --chown=solr:solr solr/news_blog /var/solr/data/news_blog
 ADD --chown=solr:solr solr/news_news /var/solr/data/news_news
 ADD --chown=solr:solr solr/organisation_advisory_board_solution /var/solr/data/organisation_advisory_board_solution
