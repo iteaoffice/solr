@@ -119,7 +119,6 @@
     <field name="mailing_contact_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
     <copyField source="mailing_contact" dest="mailing_contact_sort"/>
-    <copyField source="mailing_contact" dest="mailing_contact_search"/>
 
     <field name="has_calendar" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="has_calendar_text" type="string" indexed="true" stored="true" omitNorms="true"/>
