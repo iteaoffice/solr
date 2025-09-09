@@ -133,13 +133,23 @@
     <field name="has_change_request_process" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="has_change_request_process_text" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="change_request_process_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
-    <field name="change_request_process_change_request_process" type="string" indexed="true" stored="true"
+    <field name="change_request_process_process" type="string" indexed="true" stored="true"
            omitNorms="true"/>
 
     <field name="has_progress_report" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="has_progress_report_text" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="progress_report_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
     <field name="progress_report_report" type="string" indexed="true" stored="true" omitNorms="true"/>
+
+    <field name="has_meeting" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_meeting_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="meeting_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="meeting" type="string" indexed="true" stored="true" omitNorms="true"/>
+
+    <field name="has_registration" type="boolean" indexed="true" stored="true" omitNorms="true"/>
+    <field name="has_registration_text" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="registration_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
+    <field name="registration_contact" type="string" indexed="true" stored="true" omitNorms="true"/>
 
     <uniqueKey>id</uniqueKey>
 
