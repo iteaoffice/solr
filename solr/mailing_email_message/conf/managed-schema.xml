@@ -49,9 +49,12 @@
 
     <field name="amount_of_attachments" type="pint" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="to" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="cc" type="string" indexed="true" stored="true" omitNorms="true"/>
-    <field name="bcc" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="recipient_name" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="recipient_name_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
+    <field name="recipient_name_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
+
+    <copyField source="recipient_name" dest="recipient_name_sort"/>
+    <copyField source="recipient_name" dest="recipient_name_search"/>
 
     <field name="latest_event" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="latest_event_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
