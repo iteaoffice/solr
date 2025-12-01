@@ -110,6 +110,15 @@
     <field name="has_invoices" type="boolean" indexed="true" stored="true"/>
     <field name="has_invoices_text" type="string" indexed="true" stored="true"/>
 
+    <field name="is_board" type="boolean" indexed="true" stored="true"/>
+    <field name="is_board_text" type="string" indexed="true" stored="true"/>
+    <field name="is_board_via_parent" type="boolean" indexed="true" stored="true"/>
+    <field name="is_board_via_parent_text" type="string" indexed="true" stored="true"/>
+    <field name="is_founding" type="boolean" indexed="true" stored="true"/>
+    <field name="is_founding_text" type="string" indexed="true" stored="true"/>
+    <field name="is_founding_via_parent" type="boolean" indexed="true" stored="true"/>
+    <field name="is_founding_via_parent_text" type="string" indexed="true" stored="true"/>
+
     <uniqueKey>id</uniqueKey>
 
     <!-- field type definitions. The "name" attribute is
