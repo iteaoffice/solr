@@ -169,6 +169,8 @@
     <field name="on_website_text" type="string" indexed="true" stored="true"/>
     <field name="is_successful" type="boolean" indexed="true" stored="true"/>
     <field name="is_successful_text" type="string" indexed="true" stored="true"/>
+    <field name="is_excluded_from_export" type="boolean" indexed="true" stored="true"/>
+    <field name="is_excluded_from_export_text" type="string" indexed="true" stored="true"/>
 
     <field name="has_awards" type="boolean" indexed="true" stored="true"/>
     <field name="has_awards_text" type="string" indexed="true" stored="true"/>
