@@ -1,8 +1,10 @@
-FROM solr:latest
+FROM solr:10.0.0
 LABEL maintainer="info@jield.nl"
 LABEL org.opencontainers.image.source="https://github.com/iteaoffice/solr"
 
 ENV SOLR_OPTS="-XX:-UseLargePages"
+
+CMD ["solr", "start", "-f", "--user-managed"]
 
 ADD --chown=solr:solr solr/calendar_calendar /var/solr/data/calendar_calendar
 ADD --chown=solr:solr solr/contact_contact /var/solr/data/contact_contact
