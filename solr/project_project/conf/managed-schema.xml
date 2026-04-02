@@ -139,6 +139,7 @@
     <copyField source="country" dest="country_search"/>
 
     <field name="contact_id" type="pint" indexed="true" stored="true"/>
+    <field name="contact_email" type="string" indexed="true" stored="true"/>
     <field name="contact_fullname" type="string" indexed="true" stored="true"/>
     <field name="contact_fullname_search" type="text_general" indexed="true" stored="true"/>
     <field name="contact_lastname" type="string" indexed="true" stored="true"/>
