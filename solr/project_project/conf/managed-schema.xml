@@ -138,7 +138,7 @@
 
     <copyField source="country" dest="country_search"/>
 
-    <field name="country_public_name" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="country_public_iso3" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="country_public_id" type="pint" indexed="true" stored="true" multiValued="true"/>
 
     <field name="contact_id" type="pint" indexed="true" stored="true"/>
