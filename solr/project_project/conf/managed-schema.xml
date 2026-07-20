@@ -166,18 +166,11 @@
     <field name="date_end_actual" type="pdate" indexed="true" stored="true"/>
 
     <field name="is_active" type="boolean" indexed="true" stored="true"/>
-    <field name="is_active_text" type="string" indexed="true" stored="true"/>
     <field name="is_active_call" type="boolean" indexed="true" stored="true"/>
-    <field name="is_active_call_text" type="string" indexed="true" stored="true"/>
     <field name="on_website" type="boolean" indexed="true" stored="true"/>
-    <field name="on_website_text" type="string" indexed="true" stored="true"/>
     <field name="is_successful" type="boolean" indexed="true" stored="true"/>
-    <field name="is_successful_text" type="string" indexed="true" stored="true"/>
     <field name="is_excluded_from_export" type="boolean" indexed="true" stored="true"/>
-    <field name="is_excluded_from_export_text" type="string" indexed="true" stored="true"/>
-
     <field name="has_awards" type="boolean" indexed="true" stored="true"/>
-    <field name="has_awards_text" type="string" indexed="true" stored="true"/>
     <field name="awards_year_sort" type="pint" indexed="true" stored="true"/>
     <field name="awards" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="awards_years" type="pint" indexed="true" stored="true" multiValued="true"/>
