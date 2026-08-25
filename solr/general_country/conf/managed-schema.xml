@@ -25,7 +25,6 @@
     <field name="country_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="country_search" type="text_general" indexed="true" stored="true"/>
 
-    <copyField source="country" dest="country_sort"/>
     <copyField source="country" dest="country_search"/>
 
     <field name="docref" type="string" indexed="true" stored="true"/>
@@ -34,21 +33,13 @@
     <field name="affiliations" type="pint" indexed="true" stored="true"/>
     <field name="funders" type="pint" indexed="true" stored="true"/>
     <field name="is_itac" type="boolean" indexed="true" stored="true"/>
-    <field name="is_itac_text" type="string" indexed="true" stored="true"/>
     <field name="is_eu" type="boolean" indexed="boolean" stored="true"/>
-    <field name="is_eu_text" type="string" indexed="true" stored="true"/>
     <field name="is_eureka" type="boolean" indexed="boolean" stored="true"/>
-    <field name="is_eureka_text" type="string" indexed="true" stored="true"/>
     <field name="has_projects" type="boolean" indexed="true" stored="true"/>
-    <field name="has_projects_text" type="string" indexed="true" stored="true"/>
     <field name="has_affiliations" type="boolean" indexed="true" stored="true"/>
-    <field name="has_affiliations_text" type="string" indexed="true" stored="true"/>
     <field name="has_funders" type="boolean" indexed="true" stored="true"/>
-    <field name="has_funders_text" type="string" indexed="true" stored="true"/>
     <field name="has_videos" type="boolean" indexed="true" stored="true"/>
-    <field name="has_videos_text" type="string" indexed="true" stored="true"/>
     <field name="has_pages" type="boolean" indexed="true" stored="true"/>
-    <field name="has_pages_text" type="string" indexed="true" stored="true"/>
 
     <field name="amount_of_projects" type="pint" indexed="true" stored="true"/>
     <field name="amount_of_partners" type="pint" indexed="true" stored="true"/>

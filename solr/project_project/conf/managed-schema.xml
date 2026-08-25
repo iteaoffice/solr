@@ -140,6 +140,8 @@
 
     <field name="country_public_iso3" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="country_public_id" type="pint" indexed="true" stored="true" multiValued="true"/>
+    <field name="country_public" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="country_public_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
 
     <field name="contact_id" type="pint" indexed="true" stored="true"/>
     <field name="contact_email" type="string" indexed="true" stored="true"/>

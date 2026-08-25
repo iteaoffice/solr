@@ -79,14 +79,8 @@
     <copyField source="looking_for" dest="looking_for_search"/>
 
     <field name="has_poster" type="boolean" indexed="true" stored="true"/>
-    <field name="has_poster_text" type="string" indexed="true" stored="true"/>
-
     <field name="has_presentation" type="boolean" indexed="true" stored="true"/>
-    <field name="has_presentation_text" type="string" indexed="true" stored="true"/>
-
     <field name="is_hidden" type="boolean" indexed="true" stored="true"/>
-    <field name="is_hidden_text" type="string" indexed="true" stored="true"/>
-
     <field name="program_call_id" type="pint" indexed="true" stored="true"/>
     <field name="program_call" type="string" indexed="true" stored="true"/>
     <field name="program_call_short" type="string" indexed="true" stored="true"/>
@@ -105,7 +99,6 @@
     <copyField source="meeting" dest="meeting_sort"/>
 
     <field name="contact_is_registered" type="boolean" indexed="true" stored="true" omitNorms="true"/>
-    <field name="contact_is_registered_text" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_registration_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="contact_id" type="pint" indexed="true" stored="true"/>
@@ -177,13 +170,8 @@
     <copyField source="keyword" dest="keyword_search"/>
 
     <field name="has_posters_for_poster_session" type="boolean" indexed="true" stored="true"/>
-    <field name="has_posters_for_poster_session_text" type="string" indexed="true" stored="true"/>
-
     <field name="has_video" type="boolean" indexed="true" stored="true"/>
-    <field name="has_video_text" type="string" indexed="true" stored="true"/>
-
     <field name="has_meeting" type="boolean" indexed="true" stored="true"/>
-    <field name="has_meeting_text" type="string" indexed="true" stored="true"/>
     <field name="meeting_amount" type="pint" indexed="true" stored="true"/>
 
     <uniqueKey>id</uniqueKey>
