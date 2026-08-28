@@ -33,7 +33,7 @@
     <field name="idea_number_sort" type="string" indexed="true" stored="true"/>
     <field name="idea_number_sort_prefix" type="string" indexed="true" stored="true"/>
     <field name="idea_number_sort_number" type="pint" indexed="true" stored="true"/>
-    <field name="idea_number_search" type="string" indexed="true" stored="true"/>
+    <field name="idea_number_search" type="idea_number_ci" indexed="true" stored="false"/>
 
     <copyField source="idea_number" dest="idea_number_search"/>
     <copyField source="idea_number" dest="idea_number_sort"/>
@@ -545,4 +545,12 @@
             <filter name="snowballPorter" language="Dutch"/>
         </analyzer>
     </fieldType>
+
+    <fieldType name="idea_number_ci" class="solr.TextField">
+        <analyzer>
+            <tokenizer name="keyword"/>
+            <filter name="lowercase"/>
+        </analyzer>
+    </fieldType>
+
 </schema>
