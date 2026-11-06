@@ -28,7 +28,7 @@
     <field name="url_title" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="url_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="content" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="content" type="string" indexed="false" stored="true" omitNorms="true" docValues="false" large="true" />
     <field name="content_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
     <field name="language" type="string" indexed="true" stored="true"/>
@@ -45,11 +45,11 @@
 
     <field name="project_id" type="pint" indexed="true" stored="true" multiValued="true"/>
     <field name="project" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="project_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
+    <field name="project_sort" type="text_gen_sort_multi" indexed="true" stored="true" multiValued="true" />
     <field name="project_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
 
     <field name="keyword" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="keyword_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="true"/>
+    <field name="keyword_sort" type="text_gen_sort_multi" indexed="true" stored="true" multiValued="true" />
     <field name="keyword_search" type="text_general" indexed="true" stored="true" multiValued="true"/>
 
     <field name="date_released" type="pdate" indexed="true" stored="true" omitNorms="true"/>
@@ -63,7 +63,7 @@
     <field name="highlight" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="hidden" type="boolean" indexed="true" stored="true" omitNorms="true"/>
 
-    <field name="highlight_description" type="string" indexed="true" stored="true"/>
+    <field name="highlight_description" type="string" indexed="false" stored="true" docValues="false" large="true" />
     <field name="highlight_description_search" type="text_general" indexed="true" stored="true"/>
 
     <dynamicField name="attr_*" type="text_en_splitting" indexed="true" stored="true" multiValued="true"/>
@@ -98,8 +98,8 @@
     <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true" />
 
     <!-- boolean type: "true" or "false" -->
-    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
-    <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true" docValues="true"/>
+    <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true" docValues="true"/>
 
     <!--
       Numeric field types that index values using KD-trees.
@@ -201,28 +201,11 @@
     </fieldType>
 
 
-    <!-- SortableTextField generaly functions exactly like TextField,
-         except that it supports, and by default uses, docValues for sorting (or faceting)
-         on the first 1024 characters of the original field values (which is configurable).
-         This makes it a bit more useful then TextField in many situations, but the trade-off
-         is that it takes up more space on disk; which is why it's not used in place of TextField
-         for every fieldType in this _default schema.
-    -->
+    <!-- Full-value sorting ignores case and accents using JDK collation. -->
     <dynamicField name="*_t_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="false"/>
     <dynamicField name="*_txt_sort" type="text_gen_sort" indexed="true" stored="true"/>
-    <fieldType name="text_gen_sort" class="solr.SortableTextField" positionIncrementGap="100" multiValued="true">
-        <analyzer type="index">
-            <tokenizer name="standard"/>
-            <filter name="stop" ignoreCase="true" words="stopwords.txt" />
-            <filter name="lowercase"/>
-        </analyzer>
-        <analyzer type="query">
-            <tokenizer name="standard"/>
-            <filter name="stop" ignoreCase="true" words="stopwords.txt" />
-            <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
-            <filter name="lowercase"/>
-        </analyzer>
-    </fieldType>
+    <fieldType name="text_gen_sort" class="solr.CollationField" language="en" strength="primary"
+               decomposition="canonical" docValues="true" sortMissingLast="true" multiValued="false" useDocValuesAsStored="false"/>
 
     <!-- A text field with defaults appropriate for English: it tokenizes with StandardTokenizer,
          removes English stop words (lang/stopwords_en.txt), down cases, protects words from protwords.txt, and
@@ -433,4 +416,80 @@
             <filter name="snowballPorter" language="Dutch"/>
         </analyzer>
     </fieldType>
+
+    <!-- Dedicated relevance fields. Values are populated by copyField, not PHP. -->
+    <field name="article_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="article" dest="article_relevance"/>
+    <field name="article_exact" type="text_relevance_exact" indexed="true" stored="false" docValues="false"/>
+    <copyField source="article" dest="article_exact"/>
+    <field name="article_prefix" type="text_relevance_prefix" indexed="true" stored="false" docValues="false"/>
+    <copyField source="article" dest="article_prefix"/>
+    <field name="bureau_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="bureau" dest="bureau_relevance"/>
+    <field name="project_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="project" dest="project_relevance"/>
+    <field name="keyword_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="keyword" dest="keyword_relevance"/>
+    <field name="content_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="content" dest="content_relevance"/>
+    <field name="highlight_description_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="highlight_description" dest="highlight_description_relevance"/>
+
+    <!-- Search copies retain positions and norms for BM25 and phrase scoring.
+         Facet/display fields remain unchanged. Reindex after changing analysis. -->
+    <fieldType name="text_relevance" class="solr.TextField" positionIncrementGap="100" multiValued="true">
+        <analyzer type="index">
+            <charFilter name="htmlStrip"/>
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+        <analyzer type="query">
+            <charFilter name="htmlStrip"/>
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+            <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+        </analyzer>
+        <similarity class="solr.BM25SimilarityFactory">
+            <float name="k1">1.2</float>
+            <float name="b">0.75</float>
+        </similarity>
+    </fieldType>
+
+    <!-- Whole-value, case/accent-insensitive identity matching. -->
+    <fieldType name="text_relevance_exact" class="solr.TextField" positionIncrementGap="100" multiValued="true" omitNorms="true">
+        <analyzer>
+            <tokenizer name="keyword"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+    </fieldType>
+
+    <!-- Bounded prefix recall on identity fields, below complete-token matches.
+         preserveOriginal keeps tokens longer than maxGramSize searchable. -->
+    <fieldType name="text_relevance_prefix" class="solr.TextField" positionIncrementGap="100" multiValued="true" omitNorms="true">
+        <analyzer type="index">
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+            <filter name="edgeNGram" minGramSize="2" maxGramSize="30" preserveOriginal="true"/>
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+    </fieldType>
+
+    <!-- Multi-valued relation sort fields retain SortableTextField semantics.
+         Solr CollationField does not support sorting multiple values. -->
+    <fieldType name="text_gen_sort_multi" class="solr.SortableTextField" positionIncrementGap="100" multiValued="true">
+        <analyzer>
+            <tokenizer name="keyword"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+    </fieldType>
+
 </schema>

@@ -26,7 +26,7 @@
     <field name="organisation_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
     <field name="organisation_search_ascii" type="text_general_ascii" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="organisation" dest="organisation_sort"/>
+    <copyField source="organisation" dest="organisation_sort" maxChars="1024" />
     <copyField source="organisation" dest="organisation_search"/>
     <copyField source="organisation" dest="organisation_search_ascii"/>
 
@@ -41,7 +41,7 @@
     <field name="parent_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="parent_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="parent" dest="parent_sort"/>
+    <copyField source="parent" dest="parent_sort" maxChars="1024" />
     <copyField source="parent" dest="parent_search"/>
 
     <field name="own_parent_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
@@ -63,7 +63,7 @@
     <field name="organisation_type_search" type="text_general" indexed="true" stored="true"
            omitNorms="true"/>
 
-    <copyField source="organisation_type" dest="organisation_type_sort"/>
+    <copyField source="organisation_type" dest="organisation_type_sort" maxChars="1024" />
     <copyField source="organisation_type_description" dest="organisation_type_search"/>
 
     <field name="country_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
@@ -72,7 +72,7 @@
     <field name="country_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="country_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="country" dest="country_sort"/>
+    <copyField source="country" dest="country_sort" maxChars="1024" />
     <copyField source="country" dest="country_search"/>
 
     <field name="date_created" type="pdate" indexed="true" stored="true" omitNorms="true"/>
@@ -149,8 +149,8 @@
     <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true"/>
 
     <!-- boolean type: "true" or "false" -->
-    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
-    <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true" docValues="true"/>
+    <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true" docValues="true"/>
 
     <!--
       Numeric field types that index values using KD-trees.
@@ -267,31 +267,15 @@
             <filter name="stop" ignoreCase="true" words="stopwords.txt"/>
             <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
             <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
         </analyzer>
     </fieldType>
 
-    <!-- SortableTextField generaly functions exactly like TextField,
-         except that it supports, and by default uses, docValues for sorting (or faceting)
-         on the first 1024 characters of the original field values (which is configurable).
-         This makes it a bit more useful then TextField in many situations, but the trade-off
-         is that it takes up more space on disk; which is why it's not used in place of TextField
-         for every fieldType in this _default schema.
-    -->
+    <!-- Full-value sorting ignores case and accents using JDK collation. -->
     <dynamicField name="*_t_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="false"/>
     <dynamicField name="*_txt_sort" type="text_gen_sort" indexed="true" stored="true"/>
-    <fieldType name="text_gen_sort" class="solr.SortableTextField" positionIncrementGap="100" multiValued="true">
-        <analyzer type="index">
-            <tokenizer name="standard"/>
-            <filter name="stop" ignoreCase="true" words="stopwords.txt"/>
-            <filter name="lowercase"/>
-        </analyzer>
-        <analyzer type="query">
-            <tokenizer name="standard"/>
-            <filter name="stop" ignoreCase="true" words="stopwords.txt"/>
-            <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
-            <filter name="lowercase"/>
-        </analyzer>
-    </fieldType>
+    <fieldType name="text_gen_sort" class="solr.CollationField" language="en" strength="primary"
+               decomposition="canonical" docValues="true" sortMissingLast="true" multiValued="false" useDocValuesAsStored="false"/>
 
     <!-- A text field with defaults appropriate for English: it tokenizes with StandardTokenizer,
          removes English stop words (lang/stopwords_en.txt), down cases, protects words from protwords.txt, and
@@ -508,4 +492,72 @@
             <filter name="snowballPorter" language="Dutch"/>
         </analyzer>
     </fieldType>
+
+    <!-- Dedicated relevance fields. Values are populated by copyField, not PHP. -->
+    <field name="organisation_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="organisation" dest="organisation_relevance"/>
+    <field name="organisation_exact" type="text_relevance_exact" indexed="true" stored="false" docValues="false"/>
+    <copyField source="organisation" dest="organisation_exact"/>
+    <field name="organisation_prefix" type="text_relevance_prefix" indexed="true" stored="false" docValues="false"/>
+    <copyField source="organisation" dest="organisation_prefix"/>
+    <field name="parent_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="parent" dest="parent_relevance"/>
+    <field name="organisation_type_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="organisation_type" dest="organisation_type_relevance"/>
+    <field name="vat_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="vat" dest="vat_relevance"/>
+    <field name="vat_exact" type="text_relevance_exact" indexed="true" stored="false" docValues="false"/>
+    <copyField source="vat" dest="vat_exact"/>
+    <field name="vat_prefix" type="text_relevance_prefix" indexed="true" stored="false" docValues="false"/>
+    <copyField source="vat" dest="vat_prefix"/>
+    <field name="description_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="description" dest="description_relevance"/>
+
+    <!-- Search copies retain positions and norms for BM25 and phrase scoring.
+         Facet/display fields remain unchanged. Reindex after changing analysis. -->
+    <fieldType name="text_relevance" class="solr.TextField" positionIncrementGap="100" multiValued="true">
+        <analyzer type="index">
+            <charFilter name="htmlStrip"/>
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+        <analyzer type="query">
+            <charFilter name="htmlStrip"/>
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+            <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+        </analyzer>
+        <similarity class="solr.BM25SimilarityFactory">
+            <float name="k1">1.2</float>
+            <float name="b">0.75</float>
+        </similarity>
+    </fieldType>
+
+    <!-- Whole-value, case/accent-insensitive identity matching. -->
+    <fieldType name="text_relevance_exact" class="solr.TextField" positionIncrementGap="100" multiValued="true" omitNorms="true">
+        <analyzer>
+            <tokenizer name="keyword"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+    </fieldType>
+
+    <!-- Bounded prefix recall on identity fields, below complete-token matches.
+         preserveOriginal keeps tokens longer than maxGramSize searchable. -->
+    <fieldType name="text_relevance_prefix" class="solr.TextField" positionIncrementGap="100" multiValued="true" omitNorms="true">
+        <analyzer type="index">
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+            <filter name="edgeNGram" minGramSize="2" maxGramSize="30" preserveOriginal="true"/>
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+    </fieldType>
+
 </schema>

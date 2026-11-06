@@ -27,7 +27,7 @@
     <field name="idea_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="idea" dest="idea_search"/>
-    <copyField source="idea" dest="idea_sort"/>
+    <copyField source="idea" dest="idea_sort" maxChars="1024" />
 
     <field name="idea_number" type="string" indexed="true" stored="true"/>
     <field name="idea_number_sort" type="string" indexed="true" stored="true"/>
@@ -47,7 +47,7 @@
     <field name="idea_title_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="idea_title" dest="idea_title_search"/>
-    <copyField source="idea_title" dest="idea_title_sort"/>
+    <copyField source="idea_title" dest="idea_title_sort" maxChars="1024" />
 
 
     <field name="tool_id" type="pint" indexed="true" stored="true"/>
@@ -56,24 +56,24 @@
     <field name="tool_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="tool" dest="tool_search"/>
-    <copyField source="tool" dest="tool_sort"/>
+    <copyField source="tool" dest="tool_sort" maxChars="1024" />
 
-    <field name="key_selling_points" type="string" indexed="true" stored="true"/>
+    <field name="key_selling_points" type="string" indexed="false" stored="true" docValues="false" large="true" />
     <field name="key_selling_points_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="key_selling_points" dest="key_selling_points_search"/>
 
-    <field name="short_description" type="string" indexed="true" stored="true"/>
+    <field name="short_description" type="string" indexed="false" stored="true" docValues="false" large="true" />
     <field name="short_description_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="short_description" dest="short_description_search"/>
 
-    <field name="already_involved" type="string" indexed="true" stored="true"/>
+    <field name="already_involved" type="string" indexed="false" stored="true" docValues="false" large="true" />
     <field name="already_involved_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="already_involved" dest="already_involved_search"/>
 
-    <field name="looking_for" type="string" indexed="true" stored="true"/>
+    <field name="looking_for" type="string" indexed="false" stored="true" docValues="false" large="true" />
     <field name="looking_for_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="looking_for" dest="looking_for_search"/>
@@ -88,7 +88,7 @@
     <field name="program_call_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="program_call" dest="program_call_search"/>
-    <copyField source="program_call" dest="program_call_sort"/>
+    <copyField source="program_call" dest="program_call_sort" maxChars="1024" />
 
     <field name="meeting_id" type="pint" indexed="true" stored="true"/>
     <field name="meeting" type="string" indexed="true" stored="true"/>
@@ -96,7 +96,7 @@
     <field name="meeting_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="meeting" dest="meeting_search"/>
-    <copyField source="meeting" dest="meeting_sort"/>
+    <copyField source="meeting" dest="meeting_sort" maxChars="1024" />
 
     <field name="contact_is_registered" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="contact_registration_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
@@ -107,28 +107,28 @@
     <field name="contact_fullname_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="contact_fullname" dest="contact_fullname_search"/>
-    <copyField source="contact_fullname" dest="contact_fullname_sort"/>
+    <copyField source="contact_fullname" dest="contact_fullname_sort" maxChars="1024" />
 
     <field name="contact_lastname" type="string" indexed="true" stored="true"/>
     <field name="contact_lastname_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="contact_lastname_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="contact_lastname" dest="contact_lastname_search"/>
-    <copyField source="contact_lastname" dest="contact_lastname_sort"/>
+    <copyField source="contact_lastname" dest="contact_lastname_sort" maxChars="1024" />
 
     <field name="contact_organisation" type="string" indexed="true" stored="true"/>
     <field name="contact_organisation_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="contact_organisation_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="contact_organisation" dest="contact_organisation_search"/>
-    <copyField source="contact_organisation" dest="contact_organisation_sort"/>
+    <copyField source="contact_organisation" dest="contact_organisation_sort" maxChars="1024" />
 
     <field name="contact_organisation_type" type="string" indexed="true" stored="true"/>
     <field name="contact_organisation_type_sort" type="text_gen_sort" indexed="true" stored="true"/>
     <field name="contact_organisation_type_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="contact_organisation_type" dest="contact_organisation_type_search"/>
-    <copyField source="contact_organisation_type" dest="contact_organisation_type_sort"/>
+    <copyField source="contact_organisation_type" dest="contact_organisation_type_sort" maxChars="1024" />
 
     <field name="contact_country" type="string" indexed="true" stored="true"/>
     <field name="contact_country_sort" type="text_gen_sort" indexed="true" stored="true"/>
@@ -136,7 +136,7 @@
     <field name="contact_country_search" type="text_general" indexed="true" stored="true"/>
 
     <copyField source="contact_country" dest="contact_country_search"/>
-    <copyField source="contact_country" dest="contact_country_sort"/>
+    <copyField source="contact_country" dest="contact_country_sort" maxChars="1024" />
 
     <field name="organisation_id" type="pint" indexed="true" stored="true" omitNorms="true" multiValued="true"/>
     <field name="organisation" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -204,8 +204,8 @@
     <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true"/>
 
     <!-- boolean type: "true" or "false" -->
-    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
-    <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true" docValues="true"/>
+    <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true" docValues="true"/>
 
     <!--
       Numeric field types that index values using KD-trees.
@@ -307,28 +307,11 @@
     </fieldType>
 
 
-    <!-- SortableTextField generaly functions exactly like TextField,
-         except that it supports, and by default uses, docValues for sorting (or faceting)
-         on the first 1024 characters of the original field values (which is configurable).
-         This makes it a bit more useful then TextField in many situations, but the trade-off
-         is that it takes up more space on disk; which is why it's not used in place of TextField
-         for every fieldType in this _default schema.
-    -->
+    <!-- Full-value sorting ignores case and accents using JDK collation. -->
     <dynamicField name="*_t_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="false"/>
     <dynamicField name="*_txt_sort" type="text_gen_sort" indexed="true" stored="true"/>
-    <fieldType name="text_gen_sort" class="solr.SortableTextField" positionIncrementGap="100" multiValued="true">
-        <analyzer type="index">
-            <tokenizer name="standard"/>
-            <filter name="stop" ignoreCase="true" words="stopwords.txt"/>
-            <filter name="lowercase"/>
-        </analyzer>
-        <analyzer type="query">
-            <tokenizer name="standard"/>
-            <filter name="stop" ignoreCase="true" words="stopwords.txt"/>
-            <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
-            <filter name="lowercase"/>
-        </analyzer>
-    </fieldType>
+    <fieldType name="text_gen_sort" class="solr.CollationField" language="en" strength="primary"
+               decomposition="canonical" docValues="true" sortMissingLast="true" multiValued="false" useDocValuesAsStored="false"/>
 
     <!-- A text field with defaults appropriate for English: it tokenizes with StandardTokenizer,
          removes English stop words (lang/stopwords_en.txt), down cases, protects words from protwords.txt, and
@@ -550,6 +533,94 @@
         <analyzer>
             <tokenizer name="keyword"/>
             <filter name="lowercase"/>
+        </analyzer>
+    </fieldType>
+
+
+    <!-- Dedicated relevance fields. Values are populated by copyField, not PHP. -->
+    <field name="idea_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="idea" dest="idea_relevance"/>
+    <field name="idea_exact" type="text_relevance_exact" indexed="true" stored="false" docValues="false"/>
+    <copyField source="idea" dest="idea_exact"/>
+    <field name="idea_prefix" type="text_relevance_prefix" indexed="true" stored="false" docValues="false"/>
+    <copyField source="idea" dest="idea_prefix"/>
+    <field name="idea_number_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="idea_number" dest="idea_number_relevance"/>
+    <field name="idea_number_exact" type="text_relevance_exact" indexed="true" stored="false" docValues="false"/>
+    <copyField source="idea_number" dest="idea_number_exact"/>
+    <field name="idea_number_prefix" type="text_relevance_prefix" indexed="true" stored="false" docValues="false"/>
+    <copyField source="idea_number" dest="idea_number_prefix"/>
+    <field name="idea_title_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="idea_title" dest="idea_title_relevance"/>
+    <field name="idea_title_exact" type="text_relevance_exact" indexed="true" stored="false" docValues="false"/>
+    <copyField source="idea_title" dest="idea_title_exact"/>
+    <field name="idea_title_prefix" type="text_relevance_prefix" indexed="true" stored="false" docValues="false"/>
+    <copyField source="idea_title" dest="idea_title_prefix"/>
+    <field name="contact_fullname_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="contact_fullname" dest="contact_fullname_relevance"/>
+    <field name="contact_organisation_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="contact_organisation" dest="contact_organisation_relevance"/>
+    <field name="challenge_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="challenge" dest="challenge_relevance"/>
+    <field name="keyword_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="keyword" dest="keyword_relevance"/>
+    <field name="key_selling_points_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="key_selling_points" dest="key_selling_points_relevance"/>
+    <field name="already_involved_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="already_involved" dest="already_involved_relevance"/>
+    <field name="short_description_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="short_description" dest="short_description_relevance"/>
+    <field name="looking_for_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="looking_for" dest="looking_for_relevance"/>
+    <field name="contact_country_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="contact_country" dest="contact_country_relevance"/>
+    <field name="organisation_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="organisation" dest="organisation_relevance"/>
+
+    <!-- Search copies retain positions and norms for BM25 and phrase scoring.
+         Facet/display fields remain unchanged. Reindex after changing analysis. -->
+    <fieldType name="text_relevance" class="solr.TextField" positionIncrementGap="100" multiValued="true">
+        <analyzer type="index">
+            <charFilter name="htmlStrip"/>
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+        <analyzer type="query">
+            <charFilter name="htmlStrip"/>
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+            <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+        </analyzer>
+        <similarity class="solr.BM25SimilarityFactory">
+            <float name="k1">1.2</float>
+            <float name="b">0.75</float>
+        </similarity>
+    </fieldType>
+
+    <!-- Whole-value, case/accent-insensitive identity matching. -->
+    <fieldType name="text_relevance_exact" class="solr.TextField" positionIncrementGap="100" multiValued="true" omitNorms="true">
+        <analyzer>
+            <tokenizer name="keyword"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+    </fieldType>
+
+    <!-- Bounded prefix recall on identity fields, below complete-token matches.
+         preserveOriginal keeps tokens longer than maxGramSize searchable. -->
+    <fieldType name="text_relevance_prefix" class="solr.TextField" positionIncrementGap="100" multiValued="true" omitNorms="true">
+        <analyzer type="index">
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+            <filter name="edgeNGram" minGramSize="2" maxGramSize="30" preserveOriginal="true"/>
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
         </analyzer>
     </fieldType>
 

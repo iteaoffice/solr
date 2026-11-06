@@ -25,24 +25,24 @@
     <field name="identifier_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="identifier_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="identifier" dest="identifier_sort"/>
+    <copyField source="identifier" dest="identifier_sort" maxChars="1024" />
     <copyField source="identifier" dest="identifier_search"/>
 
     <field name="subject" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="subject_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="subject_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="subject" dest="subject_sort"/>
+    <copyField source="subject" dest="subject_sort" maxChars="1024" />
     <copyField source="subject" dest="subject_search"/>
 
     <field name="email_address" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="email_address_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="email_address_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="email_address" dest="email_address_sort"/>
+    <copyField source="email_address" dest="email_address_sort" maxChars="1024" />
     <copyField source="email_address" dest="email_address_search"/>
 
-    <field name="message" type="string" indexed="true" stored="true" omitNorms="true"/>
+    <field name="message" type="string" indexed="false" stored="true" omitNorms="true" docValues="false" large="true" />
     <field name="message_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
     <copyField source="message" dest="message_search"/>
@@ -53,14 +53,14 @@
     <field name="recipient_name_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="recipient_name_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="recipient_name" dest="recipient_name_sort"/>
+    <copyField source="recipient_name" dest="recipient_name_sort" maxChars="1024" />
     <copyField source="recipient_name" dest="recipient_name_search"/>
 
     <field name="latest_event" type="string" indexed="true" stored="true" omitNorms="true"/>
     <field name="latest_event_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="latest_event_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="latest_event" dest="latest_event_sort"/>
+    <copyField source="latest_event" dest="latest_event_sort" maxChars="1024" />
     <copyField source="latest_event" dest="latest_event_search"/>
 
     <field name="date_created" type="pdate" indexed="true" stored="true" omitNorms="true"/>
@@ -74,7 +74,7 @@
     <field name="template_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="template_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="template" dest="template_sort"/>
+    <copyField source="template" dest="template_sort" maxChars="1024" />
     <copyField source="template" dest="template_search"/>
 
     <field name="sender_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
@@ -82,7 +82,7 @@
     <field name="sender_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="sender_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="sender" dest="sender_sort"/>
+    <copyField source="sender" dest="sender_sort" maxChars="1024" />
     <copyField source="sender" dest="sender_search"/>
 
     <field name="mailer_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
@@ -90,7 +90,7 @@
     <field name="mailer_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="mailer_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="mailer" dest="mailer_sort"/>
+    <copyField source="mailer" dest="mailer_sort" maxChars="1024" />
     <copyField source="mailer" dest="mailer_search"/>
 
     <field name="contact_id" type="pint" indexed="true" stored="true" omitNorms="true"/>
@@ -108,9 +108,9 @@
     <field name="mailing_mail_subject_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="mailing_mail_subject_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="mailing_mailing" dest="mailing_mailing_sort"/>
+    <copyField source="mailing_mailing" dest="mailing_mailing_sort" maxChars="1024" />
     <copyField source="mailing_mailing" dest="mailing_mailing_search"/>
-    <copyField source="mailing_mail_subject" dest="mailing_mail_subject_sort"/>
+    <copyField source="mailing_mail_subject" dest="mailing_mail_subject_sort" maxChars="1024" />
     <copyField source="mailing_mail_subject" dest="mailing_mail_subject_search"/>
 
     <field name="has_mailing" type="boolean" indexed="true" stored="true" omitNorms="true"/>
@@ -121,7 +121,7 @@
     <field name="mailing_contact_sort" type="text_gen_sort" indexed="true" stored="true" omitNorms="true"/>
     <field name="mailing_contact_search" type="text_general" indexed="true" stored="true" omitNorms="true"/>
 
-    <copyField source="mailing_contact" dest="mailing_contact_sort"/>
+    <copyField source="mailing_contact" dest="mailing_contact_sort" maxChars="1024" />
 
     <field name="has_calendar" type="boolean" indexed="true" stored="true" omitNorms="true"/>
     <field name="has_calendar_text" type="string" indexed="true" stored="true" omitNorms="true"/>
@@ -184,8 +184,8 @@
     <fieldType name="strings" class="solr.StrField" sortMissingLast="true" multiValued="true" docValues="true"/>
 
     <!-- boolean type: "true" or "false" -->
-    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
-    <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true" docValues="true"/>
+    <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true" docValues="true"/>
 
     <!--
       Numeric field types that index values using KD-trees.
@@ -287,28 +287,11 @@
     </fieldType>
 
 
-    <!-- SortableTextField generaly functions exactly like TextField,
-         except that it supports, and by default uses, docValues for sorting (or faceting)
-         on the first 1024 characters of the original field values (which is configurable).
-         This makes it a bit more useful then TextField in many situations, but the trade-off
-         is that it takes up more space on disk; which is why it's not used in place of TextField
-         for every fieldType in this _default schema.
-    -->
+    <!-- Full-value sorting ignores case and accents using JDK collation. -->
     <dynamicField name="*_t_sort" type="text_gen_sort" indexed="true" stored="true" multiValued="false"/>
     <dynamicField name="*_txt_sort" type="text_gen_sort" indexed="true" stored="true"/>
-    <fieldType name="text_gen_sort" class="solr.SortableTextField" positionIncrementGap="100" multiValued="true">
-        <analyzer type="index">
-            <tokenizer name="standard"/>
-            <filter name="stop" ignoreCase="true" words="stopwords.txt"/>
-            <filter name="lowercase"/>
-        </analyzer>
-        <analyzer type="query">
-            <tokenizer name="standard"/>
-            <filter name="stop" ignoreCase="true" words="stopwords.txt"/>
-            <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
-            <filter name="lowercase"/>
-        </analyzer>
-    </fieldType>
+    <fieldType name="text_gen_sort" class="solr.CollationField" language="en" strength="primary"
+               decomposition="canonical" docValues="true" sortMissingLast="true" multiValued="false" useDocValuesAsStored="false"/>
 
     <!-- A text field with defaults appropriate for English: it tokenizes with StandardTokenizer,
          removes English stop words (lang/stopwords_en.txt), down cases, protects words from protwords.txt, and
@@ -525,4 +508,82 @@
             <filter name="snowballPorter" language="Dutch"/>
         </analyzer>
     </fieldType>
+
+    <!-- Dedicated relevance fields. Values are populated by copyField, not PHP. -->
+    <field name="subject_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="subject" dest="subject_relevance"/>
+    <field name="subject_exact" type="text_relevance_exact" indexed="true" stored="false" docValues="false"/>
+    <copyField source="subject" dest="subject_exact"/>
+    <field name="subject_prefix" type="text_relevance_prefix" indexed="true" stored="false" docValues="false"/>
+    <copyField source="subject" dest="subject_prefix"/>
+    <field name="email_address_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="email_address" dest="email_address_relevance"/>
+    <field name="email_address_exact" type="text_relevance_exact" indexed="true" stored="false" docValues="false"/>
+    <copyField source="email_address" dest="email_address_exact"/>
+    <field name="email_address_prefix" type="text_relevance_prefix" indexed="true" stored="false" docValues="false"/>
+    <copyField source="email_address" dest="email_address_prefix"/>
+    <field name="message_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="message" dest="message_relevance"/>
+    <field name="recipient_name_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="recipient_name" dest="recipient_name_relevance"/>
+    <field name="latest_event_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="latest_event" dest="latest_event_relevance"/>
+    <field name="template_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="template" dest="template_relevance"/>
+    <field name="sender_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="sender" dest="sender_relevance"/>
+    <field name="mailer_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="mailer" dest="mailer_relevance"/>
+    <field name="contact_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="contact" dest="contact_relevance"/>
+    <field name="mailing_contact_relevance" type="text_relevance" indexed="true" stored="false" docValues="false"/>
+    <copyField source="mailing_contact" dest="mailing_contact_relevance"/>
+
+    <!-- Search copies retain positions and norms for BM25 and phrase scoring.
+         Facet/display fields remain unchanged. Reindex after changing analysis. -->
+    <fieldType name="text_relevance" class="solr.TextField" positionIncrementGap="100" multiValued="true">
+        <analyzer type="index">
+            <charFilter name="htmlStrip"/>
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+        <analyzer type="query">
+            <charFilter name="htmlStrip"/>
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+            <filter name="synonymGraph" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+        </analyzer>
+        <similarity class="solr.BM25SimilarityFactory">
+            <float name="k1">1.2</float>
+            <float name="b">0.75</float>
+        </similarity>
+    </fieldType>
+
+    <!-- Whole-value, case/accent-insensitive identity matching. -->
+    <fieldType name="text_relevance_exact" class="solr.TextField" positionIncrementGap="100" multiValued="true" omitNorms="true">
+        <analyzer>
+            <tokenizer name="keyword"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+    </fieldType>
+
+    <!-- Bounded prefix recall on identity fields, below complete-token matches.
+         preserveOriginal keeps tokens longer than maxGramSize searchable. -->
+    <fieldType name="text_relevance_prefix" class="solr.TextField" positionIncrementGap="100" multiValued="true" omitNorms="true">
+        <analyzer type="index">
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+            <filter name="edgeNGram" minGramSize="2" maxGramSize="30" preserveOriginal="true"/>
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer name="standard"/>
+            <filter name="lowercase"/>
+            <filter name="asciiFolding" preserveOriginal="false"/>
+        </analyzer>
+    </fieldType>
+
 </schema>
